@@ -1,0 +1,1649 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="计算机网络笔记, 前端小橙">
+    <meta name="description" content="1.常见状态码
+1xx: 接受，继续处理
+200: 成功，并返回数据
+201: 已创建
+202: 已接受
+203: 成为，但未授权
+204: 成功，无内容
+205: 成功，重置内容
+206: 成功，部分内容
+301: 永久移动，重定向
+30">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+    <title>计算机网络笔记 | 前端小橙</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">前端小橙</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">前端小橙</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计算机网络笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-29
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-常见状态码"><a href="#1-常见状态码" class="headerlink" title="1.常见状态码"></a>1.常见状态码</h2><ul>
+<li>1xx: 接受，继续处理</li>
+<li>200: 成功，并返回数据</li>
+<li>201: 已创建</li>
+<li>202: 已接受</li>
+<li>203: 成为，但未授权</li>
+<li>204: 成功，无内容</li>
+<li>205: 成功，重置内容</li>
+<li>206: 成功，部分内容</li>
+<li>301: 永久移动，重定向</li>
+<li>302: 临时移动，可使用原有URI</li>
+<li>303: 明确表示客户端应当采⽤get⽅法获取资源，他会把POST请求变为GET请求进⾏重定向。</li>
+<li>304: 资源未修改，可使用缓存</li>
+<li>305: 需代理访问</li>
+<li>307: 会遵照浏览器标准，不会从post变为get。 </li>
+<li>400: 请求语法错误</li>
+<li>401: 要求身份认证</li>
+<li>403: 拒绝请求</li>
+<li>404: 资源不存在</li>
+<li>410: </li>
+<li>500: 服务器错误</li>
+</ul>
+<h2 id="2-get-x2F-post"><a href="#2-get-x2F-post" class="headerlink" title="2.get &#x2F; post"></a>2.get &#x2F; post</h2><ul>
+<li>get: 缓存、请求长度受限、会被历史保存记录<ul>
+<li>无副作用(不修改资源)，幂等(请求次数与资源无关)的场景</li>
+</ul>
+</li>
+<li>post: 安全、大数据、更多编码类型</li>
+</ul>
+<p>两者详细对比如下图：</p>
+<p><code>GET是进行明文传递，POST非明文请求数据放在请求体中</code></p>
+<p><img src="/../img/168e9d9050b9d08a~tplv-t2oaga2asx-watermark.awebp.png"></p>
+<h2 id="3-TCP是什么-x2F-TCP-的特性"><a href="#3-TCP是什么-x2F-TCP-的特性" class="headerlink" title="3.TCP是什么&#x2F;TCP 的特性"></a>3.TCP是什么&#x2F;TCP 的特性</h2><ul>
+<li>TCP 提供一种<strong>面向连接的、可靠的</strong>字节流服务</li>
+<li>在一个 TCP 连接中，仅有两方进行彼此通信。广播和多播不能用于TCP</li>
+<li>TCP 使用校验和，确认和重传机制来保证可靠传输</li>
+<li>TCP 给数据分节进行排序，并使用累积确认保证数据的顺序不变和非重复</li>
+<li>TCP 使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制</li>
+</ul>
+<p><strong>注意</strong>：TCP 并不能保证数据一定会被对方接收到，因为这是不可能的。TCP 能够做到的是，如果有可能，就把数据递送到接收方，否则就（通过放弃重传并且中断连接这一手段）通知用户。因此准确说TCP也不是 100%可靠的协议，它所能提供的是数据的可靠递送或故障的可靠通知。一个TCP连接由一个4元组构成，分别是两个IP地址和两个端口号。一个TCP连接通常分为三个阶段：启动、数据传输、退出（关闭）。</p>
+<p>当TCP接收到另一端的数据时，它会发送一个确认，但这个确认不会立即发送，一般会延迟一会儿。ACK是累积的，一个确认字节号N的ACK表示所有直到N的字节（不包括N）已经成功被接收了。这样的好处是如果一个ACK丢失，很可能后续的ACK就足以确认前面的报文段了。</p>
+<p>一个完整的TCP连接是双向和对称的，数据可以在两个方向上平等地流动。给上层应用程序提供一种<code>双工服务</code>。一旦建立了一个连接，这个连接的一个方向上的每个TCP报文段都包含了相反方向上的报文段的一个ACK。</p>
+<p>序列号的作用是使得一个TCP接收端可丢弃重复的报文段，记录以杂乱次序到达的报文段。因为TCP使用IP来传输报文段，而IP不提供重复消除或者保证次序正确的功能。另一方面，TCP是一个字节流协议，绝不会以杂乱的次序给上层程序发送数据。因此TCP接收端会被迫先保持大序列号的数据不交给应用程序，直到缺失的小序列号的报文段被填满。</p>
+<h4 id="怎么让不可靠的-UDP可靠"><a href="#怎么让不可靠的-UDP可靠" class="headerlink" title="怎么让不可靠的 UDP可靠"></a><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/how-to-make-udp-reliable">怎么让不可靠的 UDP可靠</a></h4><h4 id="TCP与UDP的区别"><a href="#TCP与UDP的区别" class="headerlink" title="TCP与UDP的区别"></a>TCP与UDP的区别</h4><p>文章转自<a target="_blank" rel="noopener" href="http://feinibuke.blog.51cto.com/1724260/340272">TCP和UDP区别</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">-</th>
+<th align="left">TCP</th>
+<th align="left">UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">是否连接</td>
+<td align="left">面向连接</td>
+<td align="left">面向非连接</td>
+</tr>
+<tr>
+<td align="left">传输可靠性</td>
+<td align="left">可靠的</td>
+<td align="left">不可靠的</td>
+</tr>
+<tr>
+<td align="left">应用场合</td>
+<td align="left">传输大量的数据</td>
+<td align="left">少量数据</td>
+</tr>
+<tr>
+<td align="left">速度</td>
+<td align="left">慢</td>
+<td align="left">快</td>
+</tr>
+</tbody></table>
+<p>OSI 和 TCP&#x2F;IP 模型在传输层定义两种传输协议：TCP（或传输控制协议）和 UDP（或用户数据报协议）。</p>
+<h6 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h6><p><strong><code>UDP</code> 与 <code>TCP</code> 的主要区别在于 <code>UDP</code> 不一定提供可靠的数据传输。</strong><br>事实上，该协议不能保证数据准确无误地到达目的地。UDP 在许多方面非常有效。当某个程序的目标是尽快地传输尽可能多的信息时（其中任意给定数据的重要性相对较低），可使用UDP。ICQ短消息使用UDP协议发送消息。</p>
+<p>许多程序将使用单独的TCP连接和单独的UDP连接。重要的状态信息随可靠的TCP连接发送，而主数据流通过UDP发送。</p>
+<h6 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h6><p><code>TCP</code>的目的是提供可靠的数据传输，并在相互进行通信的设备或服务之间保持一个虚拟连接。<code>TCP</code>在数据包接收无序、丢失或在交付期间被破坏时，负责数据恢复。它通过为其发送的每个数据包提供一个序号来完成此恢复。记住，较低的网络层会将每个数据包视为一个独立的单元，因此，数据包可以沿完全不同的路径发送，即使它们都是同一消息的组成部分。这种路由与网络层处理分段和重新组装数据包的方式非常相似，只是级别更高而已。</p>
+<p>为确保正确地接收数据，TCP要求在目标计算机成功收到数据时发回一个确认（即 ACK）。如果在某个时限内未收到相应的 ACK，将重新传送数据包。如果网络拥塞，这种重新传送将导致发送的数据包重复。但是，接收计算机可使用数据包的序号来确定它是否为重复数据包，并在必要时丢弃它。</p>
+<h6 id="TCP与UDP的选择"><a href="#TCP与UDP的选择" class="headerlink" title="TCP与UDP的选择"></a>TCP与UDP的选择</h6><p>如果比较<code>UDP</code>包和<code>TCP</code>包的结构，很明显<code>UDP</code>包不具备<code>TCP</code>包复杂的可靠性与控制机制。与TCP协议相同，UDP的源端口数和目的端口数也都支持一台主机上的多个应用。一个16位的UDP包包含了一个字节长的头部和数据的长度，校验码域使其可以进行整体校验。（许多应用只支持UDP，如：多媒体数据流，不产生任何额外的数据，即使知道有破坏的包也不进行重发。）</p>
+<p>很明显，当数据传输的性能必须让位于数据传输的完整性、可控制性和可靠性时，TCP协议是当然的选择。当强调传输性能而不是传输的完整性时，如：音频和多媒体应用，UDP是最好的选择。</p>
+<p>在数据传输时间很短，以至于此前的连接过程成为整个流量主体的情况下，UDP也是一个好的选择，如：DNS交换。把SNMP建立在UDP上的部分原因是设计者认为当发生网络阻塞时，UDP较低的开销使其有更好的机会去传送管理数据。TCP丰富的功能有时会导致不可预料的性能低下，但是我们相信在不远的将来，TCP可靠的点对点连接将会用于绝大多数的网络应用。</p>
+<h6 id="TCP协议和UDP协议特性区别总结："><a href="#TCP协议和UDP协议特性区别总结：" class="headerlink" title="TCP协议和UDP协议特性区别总结："></a>TCP协议和UDP协议特性区别总结：</h6><ol>
+<li>TCP协议在传送数据段的时候要给段标号；UDP协议不</li>
+<li>TCP协议可靠；UDP协议不可靠</li>
+<li>TCP协议是面向连接；UDP协议采用无连接</li>
+<li>TCP协议负载较高，采用虚电路；UDP采用无连接</li>
+<li>TCP协议的发送方要确认接收方是否收到数据段（3次握手协议）</li>
+<li>TCP协议采用窗口技术和流控制</li>
+</ol>
+<h2 id="3-TCP三次握手"><a href="#3-TCP三次握手" class="headerlink" title="3.TCP三次握手"></a>3.TCP三次握手</h2><p>所谓三次握手(Three-way Handshake)，是指&#x3D;&#x3D;建立一个 TCP 连接时，需要客户端和服务器总共发送3个包&#x3D;&#x3D;。</p>
+<p>三次握手的目的是连接服务器指定端口，建立TCP连接，并&#x3D;&#x3D;同步连接双方的序列号和确认号&#x3D;&#x3D;，交换 TCP 窗口大小信息。在 socket 编程中，客户端执行 <code>connect()</code> 时。将触发三次握手。</p>
+<ul>
+<li><p>第一次握手(SYN&#x3D;1, seq&#x3D;x):</p>
+<p>客户端发送一个 TCP 的 SYN 标志位置1的包，&#x3D;&#x3D;<strong>指明客户端打算连接的服务器的端口</strong>&#x3D;&#x3D;，以及初始序号 X,保存在包头的序列号(Sequence Number)字段里。</p>
+<p>发送完毕后，客户端进入 <code>SYN_SEND</code> 状态，等待确认。</p>
+</li>
+<li><p>第二次握手(SYN&#x3D;1, ACK&#x3D;1, seq&#x3D;y, ACKnum&#x3D;x+1):</p>
+<p>服务器发回确认包(ACK)应答。即 SYN 标志位和 ACK 标志位均为1。服务器端选择自己 ISN 序列号，放到 Seq 域里，同时将确认序号(Acknowledgement Number)设置为客户的 ISN 加1，即X+1。 发送完毕后，服务器端进入 <code>SYN_RCVD</code> 状态。</p>
+</li>
+<li><p>第三次握手(ACK&#x3D;1，ACKnum&#x3D;y+1)</p>
+<p>客户端再次发送确认包(ACK)，SYN 标志位为0，ACK 标志位为1，并且把服务器发来 ACK 的序号字段+1，放在确定字段中发送给对方，并且在数据段放写ISN的+1</p>
+<p>发送完毕后，客户端进入 <code>ESTABLISHED</code> 状态，当服务器端接收到这个包时，也进入 <code>ESTABLISHED</code> 状态，TCP 握手结束。</p>
+<p><img src="https://raw.githubusercontent.com/HIT-Alibaba/interview/master/img/tcp-connection-made-three-way-handshake.png"></p>
+</li>
+</ul>
+<p>为何需要三次握手而不能两次：**<code>为了防止已失效的连接请求报文段突然又传送到了服务端，而产生错误</code>**</p>
+<h2 id="4-TCP四次挥手"><a href="#4-TCP四次挥手" class="headerlink" title="4. TCP四次挥手"></a>4. TCP四次挥手</h2><p>&#x3D;&#x3D;TCP 的连接的拆除需要发送四个包&#x3D;&#x3D;，因此称为四次挥手(Four-way handshake)，也叫做改进的三次握手。客户端或服务器均可主动发起挥手动作，在 socket 编程中，任何一方执行 <code>close()</code> 操作即可产生挥手操作。</p>
+<ul>
+<li><p>第一次挥手(FIN&#x3D;1，seq&#x3D;x)</p>
+<p>假设客户端想要关闭连接，客户端发送一个 FIN 标志位置为1的包，表示自己已经没有数据可以发送了，但是仍然可以接受数据。</p>
+<p>发送完毕后，客户端进入 <code>FIN_WAIT_1</code> 状态。</p>
+</li>
+<li><p>第二次挥手(ACK&#x3D;1，ACKnum&#x3D;x+1)</p>
+<p>服务器端确认客户端的 FIN 包，发送一个确认包，表明自己接受到了客户端关闭连接的请求，但还没有准备好关闭连接。</p>
+<p>发送完毕后，服务器端进入 <code>CLOSE_WAIT</code> 状态，客户端接收到这个确认包之后，进入 <code>FIN_WAIT_2</code> 状态，等待服务器端关闭连接。</p>
+</li>
+<li><p>第三次挥手(FIN&#x3D;1，seq&#x3D;y)</p>
+<p>服务器端准备好关闭连接时，向客户端发送结束连接请求，FIN 置为1。</p>
+<p>发送完毕后，服务器端进入 <code>LAST_ACK</code> 状态，等待来自客户端的最后一个ACK。</p>
+</li>
+<li><p>第四次挥手(ACK&#x3D;1，ACKnum&#x3D;y+1)</p>
+<p>客户端接收到来自服务器端的关闭请求，发送一个确认包，并进入 <code>TIME_WAIT</code>状态，等待可能出现的要求重传的 ACK 包。</p>
+<p>服务器端接收到这个确认包之后，关闭连接，进入 <code>CLOSED</code> 状态。</p>
+<p>客户端等待了某个固定时间（两个最大段生命周期，2MSL，2 Maximum Segment Lifetime）之后，没有收到服务器端的 ACK ，认为服务器端已经正常关闭连接，于是自己也关闭连接，进入 <code>CLOSED</code> 状态。</p>
+<p><img src="https://raw.githubusercontent.com/HIT-Alibaba/interview/master/img/tcp-connection-closed-four-way-handshake.png"></p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://hit-alibaba.github.io/interview/basic/network/TCP.html">讲得很好的握手挥手</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53374516">深入TCP</a></p>
+<h2 id="5-TCP-拥塞控制"><a href="#5-TCP-拥塞控制" class="headerlink" title="5.TCP 拥塞控制"></a>5.TCP 拥塞控制</h2><p>拥塞处理和流量控制不同，后者是作用于接收方，保证接收方来得及接受数据。而前者是作用于网络，防止过多的数据拥塞网络，避免出现网络负载过大的情况。</p>
+<p>拥塞处理包括了四个算法，分别为：慢开始，拥塞避免，快速重传，快速恢复。</p>
+<h4 id="慢开始算法"><a href="#慢开始算法" class="headerlink" title="慢开始算法"></a>慢开始算法</h4><p>慢开始算法，顾名思义，就是在传输开始时将发送窗口慢慢指数级扩大，从而避免一开始就传输大量数据导致网络拥塞。（&#x3D;&#x3D;<strong>不要一开始就发送大量的数据，先探测一下网络的拥塞程度，也就是说由小到大逐渐增加拥塞窗口的大小</strong>&#x3D;&#x3D;）</p>
+<p>慢开始算法步骤具体如下</p>
+<ol>
+<li>连接初始设置拥塞窗口（Congestion Window） 为 1 MSS（一个分段的最大数据量）</li>
+<li>每过一个 RTT 就将窗口大小乘二</li>
+<li>指数级增长肯定不能没有限制的，所以有一个阈值限制，当窗口大小大于阈值时就会启动拥塞避免算法。</li>
+</ol>
+<h4 id="拥塞避免算法"><a href="#拥塞避免算法" class="headerlink" title="拥塞避免算法"></a>拥塞避免算法</h4><p>拥塞避免算法相比简单点，每过一个 RTT 窗口大小只加一，这样能够避免指数级增长导致网络拥塞，慢慢将大小调整到最佳值。（&#x3D;&#x3D;<strong>拥塞窗口缓慢增长，即每经过一个往返时间RTT就把发送方的拥塞窗口cwnd加1，而不是加倍。这样拥塞窗口按线性规律缓慢增长</strong>&#x3D;&#x3D;）</p>
+<p>在传输过程中可能定时器超时的情况，这时候 TCP 会认为网络拥塞了，会马上进行以下步骤：</p>
+<ul>
+<li>将阈值设为当前拥塞窗口的一半</li>
+<li>将拥塞窗口设为 1 MSS</li>
+<li>启动拥塞避免算法</li>
+</ul>
+<h4 id="快速重传"><a href="#快速重传" class="headerlink" title="快速重传"></a>快速重传</h4><p>快速重传一般和快恢复一起出现。一旦接收端收到的报文出现失序的情况，接收端只会回复最后一个顺序正确的报文序号（没有 Sack 的情况下）。如果收到三个重复的 ACK，无需等待定时器超时再重发而是启动快速重传。（&#x3D;&#x3D;<strong>发送方只要一连收到三个重复确认就应当立即重传对方尚未收到的报文段，而不必继续等待设置的重传计时器时间到期</strong>&#x3D;&#x3D;）具体算法分为两种：</p>
+<p><strong>TCP Taho 实现如下</strong></p>
+<ul>
+<li>将阈值设为当前拥塞窗口的一半</li>
+<li>将拥塞窗口设为 1 MSS</li>
+<li>重新开始慢开始算法</li>
+</ul>
+<p><strong>TCP Reno 实现如下</strong></p>
+<ul>
+<li>拥塞窗口减半</li>
+<li>将阈值设为当前拥塞窗口</li>
+<li>进入快恢复阶段（重发对端需要的包，一旦收到一个新的 ACK 答复就退出该阶段）</li>
+<li>使用拥塞避免算法</li>
+</ul>
+<h4 id="TCP-New-Ren-改进后的快恢复"><a href="#TCP-New-Ren-改进后的快恢复" class="headerlink" title="TCP New Ren 改进后的快恢复"></a>TCP New Ren 改进后的快恢复</h4><p><strong>TCP New Reno</strong> 算法改进了之前 <strong>TCP Reno</strong> 算法的缺陷。在之前，快恢复中只要收到一个新的 ACK 包，就会退出快恢复。</p>
+<p>在 <strong>TCP New Reno</strong> 中，TCP 发送方先记下三个重复 ACK 的分段的最大序号。</p>
+<p>假如我有一个分段数据是 1 ~ 10 这十个序号的报文，其中丢失了序号为 3 和 7 的报文，那么该分段的最大序号就是 10。发送端只会收到 ACK 序号为 3 的应答。这时候重发序号为 3 的报文，接收方顺利接收并会发送 ACK 序号为 7 的应答。这时候 TCP 知道对端是有多个包未收到，会继续发送序号为 7 的报文，接收方顺利接收并会发送 ACK 序号为 11 的应答，这时发送端认为这个分段接收端已经顺利接收，接下来会退出快恢复阶段。</p>
+<p><a target="_blank" rel="noopener" href="https://taylor12138.gitee.io/2021/03/15/chao-wen-ben-chuan-shu-xie-yi/">超详细的Http</a></p>
+<h2 id="6-HTTP"><a href="#6-HTTP" class="headerlink" title="6.HTTP"></a>6.HTTP</h2><h4 id="HTTP概述"><a href="#HTTP概述" class="headerlink" title="HTTP概述"></a>HTTP概述</h4><ol>
+<li>HTTP（HyperText Transfer Protocol 超文本传输协议）是WEB的应用层协议，它是Web的核心；HTTP有两部分实现，一个客户端程序一个服务器程序；HTTP定义了客户和服务器进行报文交换的方法； </li>
+<li>HTTP使用<strong>TCP</strong>作为它的传输层协议；HTTP客户<strong>首先发起一个与服务器的TCP连接</strong>，需要注意的是，服务器根据请求作出响应，但是不存储任何关于该客户的状态信息；也正因为这样，HTTP被称为<strong>无状态协议</strong>。同时，Web使用了客户端-服务器的应用体系结构；其中web服务器总是开着的</li>
+</ol>
+<h5 id="持续连接和非持续连接"><a href="#持续连接和非持续连接" class="headerlink" title="持续连接和非持续连接"></a>持续连接和非持续连接</h5><p> HTTP既可使用持续连接也可以使用非持续连接。尽管&#x3D;&#x3D;<strong>HTTP在默认情况下使用持续连接</strong>&#x3D;&#x3D;     </p>
+<ul>
+<li><p>采用非持续连接的HTTP</p>
+<ol>
+<li><p>使用非持续连接时，每个TCP连接在服务器发送一个对象后就会关闭，也就是每个TCP只传送一个请求报文和响应报文；</p>
+</li>
+<li><p>建立一个TCP连接需要三次握手，步骤如下：</p>
+<ol>
+<li>第一次握手：建立连接时，客户端发送&#x3D;&#x3D;syn包&#x3D;&#x3D;（seq&#x3D;j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）。 </li>
+<li>第二次握手：服务器收到syn包，必须确认客户的SYN（ack&#x3D;j+1），同时自己发送一个ACK包（seq&#x3D;k），即SYN+ACK包，此时服务器进入SYN_RECV状态。</li>
+<li>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack&#x3D;k+1)（<strong>通常会结合一个HTTP报文一起发送</strong>），发送完毕后，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</li>
+</ol>
+<p>因此客户端请求一个对象所需的时间为 2个RTT的时间（三次握手的前两次占一个RTT，发送报文到服务器并且接收完服务器发送回来的资源占一个RTT）</p>
+</li>
+</ol>
+</li>
+<li><p>采用持续连接的HTTP</p>
+<p>从上面可以看出：</p>
+<ol>
+<li>非持续连接必须为每个请求新建一个TCP连接，而每个TCP连接将占用系统资源，包括缓冲区和变量等，这样服务器的负担就很重了。</li>
+<li>一个对象将通过两个RTT的时延才能交付。</li>
+</ol>
+<p>如果使用持续连接，那么服务器在发送响应报文后将保持该TCP打开，后续客户端可以使用该连接来向服务器发出请求。不但一个完整的页面可以通过同一个连接传送，同一台服务器上的多个页面也可以通过同一个连接发送。这就&#x3D;&#x3D;提高了效率&#x3D;&#x3D;；</p>
+</li>
+</ul>
+<p><strong>一般来说，如果一条持续连接在一定的时间间隔后没被使用的话，就会被关闭。HTTP默认使用的是带流水线的持续连接。</strong></p>
+<h5 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h5><h6 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h6><p>  <img src="/../img/1609158520658.png" alt="1609158520658"></p>
+<p>   一个请求报文具有至少一行的内容。请求报文的第一行称为<strong>请求行</strong>，其后继的各行被称为<strong>首部行</strong>。</p>
+<ol>
+<li><p>请求行包含三个内容：</p>
+<ul>
+<li>方法字段（GET、POST、PUT、DELETE、HEAD等）</li>
+<li>URL字段（可以传递请求对象的标志）</li>
+<li>HTTP版本</li>
+</ul>
+</li>
+<li><p>首部行包含：</p>
+<ul>
+<li>是否在发送完响应报文后关闭TCP连接的Connection</li>
+<li>请求的主机地址（该头部信息被Web高速缓存所要求）</li>
+<li>浏览器版本</li>
+<li>可接受的语言等头部信息</li>
+</ul>
+</li>
+<li><p>首部行之后有一个空行，之后便是请求的<strong>实体体</strong>（entity body）。</p>
+<p>该实体体可以在POST方法里传递Form表单内容或者传递其它一些二进制流数据等。值得注意的是，表单也不一定必须使用POST方法。如果使用get,实体体为空，会显示在url中。</p>
+</li>
+<li><p>Head类似于get方法，将会用一个http报文进行响应，但是不返回请求对象，经常用作调试跟踪。</p>
+</li>
+<li><p>put方法允许用户上传对象到指定的Web服务器上指定的路径。</p>
+</li>
+<li><p>Delete方法允许用户或应用程序删除Web服务器上的对象。</p>
+</li>
+</ol>
+<h6 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h6><p><img src="/../img/1609159256967.png" alt="1609159256967"></p>
+<p> 响应报文总体上也分三个部分</p>
+<ol>
+<li><strong>状态行</strong>，包含HTTP版本、状态码以及状态信息（对状态码进行描述）等内容； </li>
+<li><strong>首部行</strong>，包含发送日期、服务器类型、上一次修改请求资源的时间、内容的类型等内容</li>
+<li><strong>实体体</strong>，实体体包含客户端所请求的对象本身。</li>
+</ol>
+<p>常见状态码</p>
+<ul>
+<li>200：请求成功 <ul>
+<li>处理方式：获得响应的内容，进行处理</li>
+</ul>
+</li>
+<li>301：请求到的资源都会分配一个永久的URL，这样就可以在将来通过该URL来访问此资源 <ul>
+<li>处理方式：重定向到分配的URL</li>
+</ul>
+</li>
+<li>400：非法请求 <ul>
+<li>处理方式：丢弃</li>
+</ul>
+</li>
+<li>404：没有找到所请求的资源或对象<ul>
+<li>处理方式：丢弃</li>
+</ul>
+</li>
+<li>505：服务器不支持请求报文使用的http版本</li>
+</ul>
+<h5 id="http协议的特点"><a href="#http协议的特点" class="headerlink" title="http协议的特点"></a>http协议的特点</h5><ul>
+<li>永远都是客户端发起请求，服务器回送响应</li>
+<li>http协议是无状态的，但是在实际工作中，一些万维网网站希望能识别用户（给用户推销产品）&#x3D;&gt;诞生了cookie小饼干，cookie是存储在用户主机的文本文件，记录一段时间内某用户的访问记录（不太敏感的数据）</li>
+<li>http采用TCP作为运输层协议，但是http协议本身是无连接的 （交换http报文之前不需要建立连接）</li>
+<li>http连接方式：持久连接（非流水线式（有点像停等协议）、流水线式（有点像GBN或SR协议，即后退N帧协议和选择重传协议））、非持久连接（每次传输都要三次握手）</li>
+</ul>
+<h4 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods">HTTP请求方法</a></h4><h2 id="7-HTTP-1-0、HTTP-1-1、SDPY、HTTP2-0、HTTPS区别"><a href="#7-HTTP-1-0、HTTP-1-1、SDPY、HTTP2-0、HTTPS区别" class="headerlink" title="7.HTTP 1.0、HTTP 1.1、SDPY、HTTP2.0、HTTPS区别"></a>7.HTTP 1.0、HTTP 1.1、SDPY、HTTP2.0、HTTPS区别</h2><h3 id="HTTP1-0和HTTP1-1的区别"><a href="#HTTP1-0和HTTP1-1的区别" class="headerlink" title="HTTP1.0和HTTP1.1的区别"></a>HTTP1.0和HTTP1.1的区别</h3><ol>
+<li><strong>缓存处理</strong>，在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</li>
+<li><strong>带宽优化及网络连接的使用</strong>，HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
+<li><strong>错误通知的管理</strong>，在HTTP1.1中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。</li>
+<li><strong>Host头处理</strong>，在HTTP1.0中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（400 Bad Request）。</li>
+<li><strong>长连接</strong>，HTTP 1.1支持长连接（PersistentConnection）和请求的流水线（Pipelining）处理，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在HTTP1.1中默认开启Connection： keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。 HTTP1.1流水线（Pipelining）其实是把多个HTTP请求放到一个TCP连接中一一发送，而在发送过程中不需要等待服务器对前一个请求的响应；只不过，<strong>客户端还是要按照发送请求的顺序来接收响应！</strong> 因此存在线头阻塞。</li>
+</ol>
+<h3 id="SPDY和HTTP1-x的区别"><a href="#SPDY和HTTP1-x的区别" class="headerlink" title="SPDY和HTTP1.x的区别"></a>SPDY和HTTP1.x的区别</h3><p>2012年google如一声惊雷提出了SPDY的方案，优化了HTTP1.X的请求延迟，解决了HTTP1.X的安全性，具体如下：</p>
+<ol>
+<li><strong>降低延迟</strong>，针对HTTP高延迟的问题，SPDY优雅的采取了多路复用（multiplexing）。多路复用通过多个请求stream共享一个tcp连接的方式，解决了HOL blocking（ 队首阻塞 Head-of-line blocking ）的问题，降低了延迟同时提高了带宽的利用率。</li>
+<li><strong>请求优先级</strong>（request prioritization）。多路复用带来一个新的问题是，在连接共享的基础之上有可能会导致关键请求被阻塞。SPDY允许给每个request设置优先级，这样重要的请求就会优先得到响应。比如浏览器加载首页，首页的html内容应该优先展示，之后才是各种静态资源文件，脚本文件等加载，这样可以保证用户能第一时间看到网页内容。</li>
+<li><strong>header压缩。</strong>前面提到HTTP1.x的header很多时候都是重复多余的。选择合适的压缩算法可以减小包的大小和数量。</li>
+<li><strong>基于HTTPS的加密协议传输</strong>，大大提高了传输数据的可靠性。（SPDY规定通信中需要使用SSL）</li>
+<li><strong>服务端推送</strong>（server push），采用了SPDY的网页，例如我的网页有一个sytle.css的请求，在客户端收到sytle.css数据的同时，服务端会将sytle.js的文件推送给客户端，当客户端再次尝试获取sytle.js时就可以直接从缓存中获取到，不用再发请求了。SPDY构成图：</li>
+</ol>
+<p><img src="http://mmbiz.qpic.cn/mmbiz_png/cmOLumrNib1cfBOtIMQ6JfSibJdd6QkQribjhshzcKo97UNNVIFgpOYZic95drsxo5TaiadPSSmcYhOI7GYAO99W6Sw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1"></p>
+<h3 id="SPDY和HTTP2-0的区别"><a href="#SPDY和HTTP2-0的区别" class="headerlink" title="SPDY和HTTP2.0的区别"></a>SPDY和HTTP2.0的区别</h3><p>HTTP2.0可以说是SPDY的升级版（其实原本也是基于SPDY设计的），但是，HTTP2.0 跟 SPDY 仍有不同的地方，如下：</p>
+<p>HTTP2.0和SPDY的区别：</p>
+<ol>
+<li>HTTP2.0 支持明文 HTTP 传输，而 SPDY 强制使用 HTTPS</li>
+<li>HTTP2.0 消息头的压缩算法采用 <strong>HPACK</strong>，而非 SPDY 采用的 <strong>DEFLATE</strong></li>
+</ol>
+<h3 id="HTTP2-0和HTTP1-x的区别"><a href="#HTTP2-0和HTTP1-x的区别" class="headerlink" title="HTTP2.0和HTTP1.x的区别"></a>HTTP2.0和HTTP1.x的区别</h3><ul>
+<li><strong>新的二进制格式</strong>（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。 HTTP2.0中，有两个⾮常重要的概念，分别是帧（frame）和流（stream）。 帧代表着最⼩的数据单位，每个帧会标识出该帧属于哪个流，流也就是多个帧组成的数据流。多路复⽤，就是在一个TCP连接中可以存在多条流。换句话说，也就是可以发送多个请求，对端可以通过帧中的标识知道属于哪个请求。通过这个技术，可以避免HTTP旧版本中的队头阻塞问题，极⼤的提⾼传输性能。&#x3D;&#x3D;<strong>（使用二进制传输，减少服务端压力，连接吞吐量更大，改善TCP拥塞状况，同时慢启动时间减少）</strong>&#x3D;&#x3D;</li>
+<li><strong>多路复用</strong>（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。不存在HTTP1.1的线头阻塞&#x3D;&#x3D;<strong>（多路复用允许同时通过单一的HTTP&#x2F;2连接发起多重的请求&#x2F;响应消息）</strong>&#x3D;&#x3D;</li>
+<li><strong>header压缩</strong>，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。&#x3D;&#x3D;<strong>（最小数据量化）</strong>&#x3D;&#x3D;</li>
+<li><strong>服务端推送</strong>（server push），同SPDY一样，HTTP2.0也具有server push功能。</li>
+</ul>
+<blockquote>
+<p>HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？</p>
+</blockquote>
+<ul>
+<li><p>HTTP&#x2F;1.0 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；</p>
+</li>
+<li><p>HTTP&#x2F;1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；</p>
+</li>
+<li><p>HTTP&#x2F;2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；<br>具体如图：</p>
+</li>
+</ul>
+<p><img src="http://mmbiz.qpic.cn/mmbiz_png/cmOLumrNib1cfBOtIMQ6JfSibJdd6QkQriba5ygCTOOjIQH4wvoJS2iaFBseyEAUfvpJQThHmTjuGuaSspUo8xppiaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="HTTPS与HTTP的区别"><a href="#HTTPS与HTTP的区别" class="headerlink" title="HTTPS与HTTP的区别"></a>HTTPS与HTTP的区别</h3><ul>
+<li><p>HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。</p>
+</li>
+<li><p>HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL&#x2F;TLS之上，SSL&#x2F;TLS运行在TCP之上，所有传输的内容都经过加密的。</p>
+</li>
+<li><p>HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+</li>
+<li><p>HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。</p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz_png/cmOLumrNib1cfBOtIMQ6JfSibJdd6QkQribXL5PwzkqQdmyY9egu2hpzzMCgz2F5HhhkdSNc5eYJ9UGMDBGjeCGiag/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+</li>
+</ul>
+<h3 id="HTTPS-握手"><a href="#HTTPS-握手" class="headerlink" title="HTTPS 握手"></a>HTTPS 握手</h3><p>HTTPS 还是通过了 HTTP 来传输信息，但是信息通过 TLS 协议进行了加密。</p>
+<h2 id="8-TLS"><a href="#8-TLS" class="headerlink" title="8.TLS"></a>8.TLS</h2><p>TLS 协议位于传输层之上，应用层之下。首次进行 TLS 协议传输需要两个 RTT ，接下来可以通过 Session Resumption 减少到一个 RTT。</p>
+<p>在 TLS 中使用了两种加密技术，分别为：对称加密和非对称加密。</p>
+<p><strong>对称加密</strong>：</p>
+<p>对称加密就是两边拥有相同的秘钥，两边都知道如何将密文加密解密。</p>
+<p><strong>非对称加密</strong>：</p>
+<p>有公钥私钥之分，公钥所有人都可以知道，可以将数据用公钥加密，但是将数据解密必须使用私钥解密，私钥只有分发公钥的一方才知道。</p>
+<p><strong>TLS 握手过程如下图：</strong></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/5/12/1635260126b3a10c~tplv-t2oaga2asx-watermark.awebp" alt="img"></p>
+<ol>
+<li>客户端发送一个随机值，需要的协议和加密方式</li>
+<li>服务端收到客户端的随机值，自己也产生一个随机值，并根据客户端需求的协议和加密方式来使用对应的方式，发送自己的证书（如果需要验证客户端证书需要说明）</li>
+<li>客户端收到服务端的证书并验证是否有效，验证通过会再生成一个随机值，通过服务端证书的公钥去加密这个随机值并发送给服务端，如果服务端需要验证客户端证书的话会附带证书</li>
+<li>服务端收到加密过的随机值并使用私钥解密获得第三个随机值，这时候两端都拥有了三个随机值，可以通过这三个随机值按照之前约定的加密方式生成密钥，接下来的通信就可以通过该密钥来加密解密</li>
+</ol>
+<p>通过以上步骤可知，在 TLS 握手阶段，两端使用非对称加密的方式来通信，但是因为非对称加密损耗的性能比对称加密大，所以在正式传输数据时，两端使用对称加密的方式通信。</p>
+<p>PS：以上说明的都是 TLS 1.2 协议的握手情况，在 1.3 协议中，首次建立连接只需要一个 RTT，后面恢复连接不需要 RTT 了。</p>
+<h2 id="9-中间人攻击"><a href="#9-中间人攻击" class="headerlink" title="9.中间人攻击"></a>9.中间人攻击</h2><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>中间⼈ (Man-in-the-middle attack, MITM) 是指攻击者与通讯的两端分别创建独⽴的联系, 并交换其所收到的数据, 使通讯的两端认为他们正在通过一个私密的连接与对⽅直接对话，但事实上整个会话都被攻击者完全控制。在中间⼈攻击中，攻击者可以拦截通讯双⽅的通话并插⼊新的内容。</p>
+<h4 id="攻击过程"><a href="#攻击过程" class="headerlink" title="攻击过程"></a>攻击过程</h4><ol>
+<li>首先中间人（攻击者）需要有一套自己的数字证书</li>
+<li>当客户端第一次发送信息给服务器时，中间人<strong>获取到第一个随机数</strong>，并将信息原样转发给服务器</li>
+<li>服务器接收到客户端信息，将公钥发送给客户端，中间人截取请求，<strong>获取第二个随机数</strong>，并<strong>将服务器的公钥替换成自己的公钥</strong>并发送给客户端</li>
+<li>客户端接收到<strong>中间人的公钥</strong>，用公钥加密<strong>第三个随机数和hash值</strong>并发送给服务器，中间人再次截取请求，用自己的私钥解密，<strong>获取第三个随机数，此时中间人得知秘钥</strong>，同时要根据自己与服务器的通信信息生成假的hash值替换掉客户端发送的hash值，再将这些信息用服务器的公钥加密，发送给服务器</li>
+<li>服务器用自己的私钥解密请求，校验hash值并根据三个随机数生成秘钥，加密三次握手的hash值并发送给客户端，中间人截取请求，用已成功 “ 窃取 ”的秘钥进行解密，将hash值替换成假的hash值并重新加密发送给客户端</li>
+<li>客户端接收到请求，用三个随机数生成的秘钥进行解密，校验无误，开始用秘钥同服务器进行对称加密的通信，这时，<strong>客户端，中间人，服务器都持有同一个秘钥，因此中间人可以对客户端和服务器的加密信息进行对称解密</strong></li>
+</ol>
+<h4 id="如何防范中间人攻击？"><a href="#如何防范中间人攻击？" class="headerlink" title="如何防范中间人攻击？"></a>如何防范中间人攻击？</h4><ol>
+<li>在上述中间人攻击中，中间人之所以可以进行攻击主要是自己替换了服务器的公钥，所以防范中间人攻击需要引入CA数字证书</li>
+<li>CA是数字证书认证机构，而数字证书就是申请人将一些必要信息（包括公钥、姓名、电子邮件、有效期）等提供给 CA，而CA用自己的私钥对申请人所提供信息计算散列值进行加密，形成数字签名，附在数字证书并颁发给申请人，这样申请人发送公钥的时候也会提供对应的数字证书，便于接收人（客户端）验证公钥是发送方（服务器）而不是中间人的。</li>
+<li>CA机构也有层级关系，如A机构颁发数字证书，B机构保证A机构合法性，C机构保证B机构的合法性，直到根CA保证。所以如果这个保证链中一个机构自己偷偷非法颁发数字证书或根CA的私钥泄露，那么数字证书提供的安全性也就不存在了。</li>
+</ol>
+<h2 id="10-DNS解析"><a href="#10-DNS解析" class="headerlink" title="10.DNS解析"></a>10.DNS解析</h2><p>DNS的作用就是通过域名查找到具体的IP</p>
+<h4 id="输入www-google-com-DNS解析流程："><a href="#输入www-google-com-DNS解析流程：" class="headerlink" title="输入www.google.com DNS解析流程："></a>输入<a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> DNS解析流程：</h4><ol>
+<li>在本地缓存中查询（一般来说，因为hosts优先级较高，浏览器会首先查看本地硬盘的 hosts 文件，看看其中有没有和这个域名对应的规则，如果有的话就直接使用 hosts 文件里面的 ip 地址。）</li>
+<li>没有的话会去系统配置的DNS服务器查询</li>
+<li>没有的话会去DNS根服务器查询，这一步查询会找出负责com这个一级域名的服务器</li>
+<li>然后去该服务器查询google这个二级域名</li>
+<li>接下来三级域名的查询是可以配置的，可以给www这个域名配置一个IP，然后还可以给别的三级域名配置一个IP</li>
+</ol>
+<p>以上便是DNS的迭代查询，还有一种是递归查询，区别就是前者由客户端去做请求，后者是由系统配置的DNS服务器做请求，得到结果后将数据返回给客户端。</p>
+<p>DNS是基于UDP做的查询</p>
+<h4 id="DNS的优化与应用"><a href="#DNS的优化与应用" class="headerlink" title="DNS的优化与应用"></a>DNS的优化与应用</h4><blockquote>
+<ol>
+<li>DNS缓存 <code>DNS存在着多级缓存</code>，从离浏览器的距离排序的话，有以下几种: <code>浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存</code>。</li>
+<li>DNS负载均衡<code>(DNS重定向) DNS负载均衡技术</code>的实现原理是在DNS服务器中为同一个主机名配置多个IP地址，在应答DNS查询时， DNS服务器对每个查询将以DNS文件中主机记录的IP地址按顺序返回不同的解析结果，将客户端的访问 引导到不同的机器上去，使得不同的客户端访问不同的服务器，从而达到负载均衡的目的。</li>
+</ol>
+<ul>
+<li>大家耳熟能详的CDN(Content Delivery Network)就是利用DNS的重定向技术，DNS服务器会返回一个跟 用户最接近的点的IP地址给用户，CDN节点的服务器负责响应用户的请求，提供所需的内容。</li>
+</ul>
+<ol start="3">
+<li>dns-prefetch <code>DNS Prefetch 是一种 DNS 预解析技术</code>。当你浏览网页时，浏览器会在加载网页时对网页中的域名进行解析缓存，这样在你单击当前网页中的连接时就无需进行DNS的解析，减少用户等待时间，提高用户体验。</li>
+</ol>
+</blockquote>
+<h2 id="11-在浏览器中输入www-google-com-会发生什么"><a href="#11-在浏览器中输入www-google-com-会发生什么" class="headerlink" title="11.在浏览器中输入www.google.com 会发生什么"></a>11.在浏览器中输入<a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a> 会发生什么</h2><p><a target="_blank" rel="noopener" href="https://www.h5w3.com/20238.html">讲得很详细的博客</a></p>
+<ol>
+<li><p><strong>URL解析</strong>：首先会对 URL 进行解析，分析所需要使用的传输协议和请求的资源的路径。如果输入的 URL 中的协议或者主机名不合法，将会把地址栏中输入的内容传递给搜索引擎。如果没有问题，浏览器会检查 URL 中是否出现了非法字符，如果存在非法字符，则对非法字符进行转义后再进行下一过程。</p>
+</li>
+<li><p><strong>缓存判断</strong>：</p>
+<ol>
+<li>浏览器缓存：浏览器会按照一定的频率缓存 DNS 记录。</li>
+<li>操作系统缓存：如果浏览器缓存中找不到需要的DNS记录，那就去操作系统中找。</li>
+<li>路由缓存：路由器也有 DNS 缓存。</li>
+</ol>
+<p>如果请求的资源在缓存里并且没有失效，那么就直接使用，否则向服务器发起新的请求。</p>
+</li>
+<li><p><strong>DNS查询</strong>：见10</p>
+</li>
+<li><p><strong>获取MAC地址</strong>：当浏览器得到IP地址后，数据传输还需要知道目的主机MAC地址，因为应用层下发数据给传输层，TCP协议会指定源端口号和目的端口号，然后下发给网络层。网络层会将本机地址作为源地址，获取的IP地址作为目的地址。然后将下发给数据链路层，数据链路层的发送需要加入通信双方的MAC地址，本机的MAC地址作为源MAC地址，目的MAC地址需要分情况处理。通过将IP地址与本机的子网掩码相与，可以判断是否与请求主机在同一个子网里，如果在同一个子网里，可以使用APR协议获取到目的主机的MAC地址，如果不在一个子网里，那么请求应该转发给网关，由它代为转发，此时同样可以通过ARP协议来获取网关的MAC地址，此时目的主机的MAC地址应该为网关的地址。</p>
+</li>
+<li><p><strong>TCP三次握手</strong>：见3， TCP 建立连接的三次握手的过程，首先客户端向服务器发送一个SYN连接请求报文段和一个随机序号，服务端接收到请求后向服务器端发送一个SYN ACK报文段，确认连接请求，并且也向客户端发送一个随机序号。客户端接收服务器的确认应答后，进入连接建立的状态，同时向服务器也发送一个ACK确认报文段，服务器端接收到确认后，也进入连接建立状态，此时双方的连接就建立起来了。</p>
+</li>
+<li><p><strong>HTTP请求</strong>：浏览器首先使用 HTTP 协议或者 HTTPS 协议，向服务端请求页面，注意如果是HTTPS协议的话，还有一个TLS四次握手</p>
+</li>
+<li><p><strong>返回数据</strong>：当页面请求发送到服务器端后，服务器端会返回一个 html 文件作为响应，浏览器接收到响应后，开始对 html 文件进行解析，开始页面的渲染过程。</p>
+</li>
+<li><p><strong>页面渲染：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903476506394638#heading-6">浏览器渲染的博客，此处不深入</a></p>
+<blockquote>
+<p>URL请求的数据类型，有时候是下载类型，有时候是HTML页面，那么浏览器怎么区分呢？</p>
+<p>​	通过 Content-Type 字段。Content-Type是HTTP头部中的重要字段，它告诉浏览器服务器返回的响应体数据是什么类型，然后浏览器会根据Content-Type的值来决定如何显示响应体的内容。比如Content-Type的值是application&#x2F;octet-stream，通常情况下，浏览器会按照下载类型来处理该请求，该请求被提交给浏览器的下载管理器，同时该URL请求的导航流程就此结束；如果Content-Type字段的值是text&#x2F;html，这就是告诉浏览器，服务器返回的数据是HTML格式，浏览器会继续导航流程，接下来渲染进程登场了。</p>
+</blockquote>
+<ol>
+<li>浏览器首先会根据 html 文件构建 DOM 树。</li>
+<li>计算DOM树上的CSS属性，根据解析到的 CSS 文件构建 CSSOM 树<ol>
+<li>如果遇到 script 标签，则判断是否含有 defer 或者 async 属性，前者会并行进行下载并执行JS，后者会先下载文件，如果都没有，就会阻塞渲染流程直到JS执行完毕，这里使用HTTP2.0协议的话会极大多图的下载速度。</li>
+</ol>
+</li>
+<li>当 DOM 树和 CSSOM 树建立好后，根据它们来构建渲染树。渲染树构建好后，会根据渲染树来进行布局。布局完成后，最后使用浏览器的 UI 接口对页面进行绘制。这个时候整个页面就显示出来了。</li>
+</ol>
+</li>
+<li><p><strong>TCP四次挥手：</strong>最后一步是 TCP 断开连接的四次挥手过程。若客户端认为数据发送完成，则它需要向服务端发送连接释放请求。服务端收到连接释放请求后，会告诉应用层要释放 TCP 链接。然后会发送 ACK 包，并进入 CLOSE_WAIT 状态，此时表明客户端到服务端的连接已经释放，不再接收客户端发的数据了。但是因为 TCP 连接是双向的，所以服务端仍旧可以发送数据给客户端。服务端如果此时还有没发完的数据会继续发送，完毕后会向客户端发送连接释放请求，然后服务端便进入 LAST-ACK 状态。客户端收到释放请求后，向服务端发送确认应答，此时客户端进入 TIME-WAIT 状态。该状态会持续 2MSL（最大段生存期，指报文段在网络中生存的时间，超时会被抛弃） 时间，若该时间段内没有服务端的重发请求的话，就进入 CLOSED 状态。当服务端收到确认应答后，也便进入 CLOSED 状态。</p>
+</li>
+</ol>
+<h2 id="12-session、cookie、localStorage、sessionStorage的区别"><a href="#12-session、cookie、localStorage、sessionStorage的区别" class="headerlink" title="12.session、cookie、localStorage、sessionStorage的区别"></a>12.session、cookie、localStorage、sessionStorage的区别</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jing-tian/p/10991431.html">这篇讲得超级好球你了看一看吧</a></p>
+<h4 id="一、Cookie、session和localStorage的区别"><a href="#一、Cookie、session和localStorage的区别" class="headerlink" title="一、Cookie、session和localStorage的区别"></a><strong>一、Cookie、session和localStorage的区别</strong></h4><ul>
+<li>cookie的内容主要包括：名字、值、过期时间、路径和域。路径与域一起构成cookie的作用范围。若不设置时间，则表示这个cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就会消失。这种生命期为浏览器会话期的cookie被称为会话cookie。 </li>
+<li>会话cookie一般不存储在硬盘而是保存在内存里，当然这个行为并不是规范规定的。若设置了过期时间，浏览器就会把cookie保存到硬盘上，关闭后再打开浏览器这些cookie仍然有效直到超过设定的过期时间。对于保存在内存里的cookie，不同的浏览器有不同的处理方式session机制。 </li>
+<li>当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识（称为session id），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来使用（检索不到，会新建一个），如果客户端请求不包含session id，则为客户端创建一个session并且生成一个与此session相关联的session id，session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。保存这个session id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给服务器。</li>
+</ul>
+<h4 id="二、cookie和session的区别"><a href="#二、cookie和session的区别" class="headerlink" title="二、cookie和session的区别"></a><strong>二、cookie和session的区别</strong></h4><ol>
+<li>cookie数据存放在客户的浏览器上，session数据放在服务器上</li>
+<li>cookie不是很安全，别人可以分析存放在本地的cookie并进行cookie欺骗，考虑<em>到安全应当使用session</em></li>
+<li>session会在一定时间内保存在服务器上，当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用cookie </li>
+<li>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie </li>
+<li>建议将登录信息等重要信息存放为session，其他信息如果需要保留，可以放在cookie中 </li>
+<li>session保存在服务器，客户端不知道其中的信心；cookie保存在客户端，服务器能够知道其中的信息 </li>
+<li>session中保存的是对象，cookie中保存的是字符串 </li>
+<li>session不能区分路径，同一个用户在访问一个网站期间，所有的session在任何一个地方都可以访问到，而cookie中如果设置了路径参数，那么同一个网站中不同路径下的cookie互相是访问不到的。 </li>
+<li>cookie：是服务端向客户端写入的小的片段信息。cookie信息保存在服务器缓存区，不会在客户端显现。当你第一次登陆一个网站，服务器向你的机器写得片段信息。你可以在Internet选项中找到存放cookie的文件夹。如果不删除，cookie就一直在这个文件夹中。 </li>
+<li>session需要借助cookie才能正常工作。如果客户端完全禁止cookie，session将失效。 但是如果服务器端启用了url编码，也就是用 URLEncoder.encode()把所有的url编码了，则会在url后面出现如下类似的东西 index.jsp:jsessionid&#x3D;fdsaffjdlks;jaf;lkdjsf 服务器通过这个进行session的判断。</li>
+<li>Cookie支持跨域名访问，例如将domain属性设置为“.biaodianfu.com”，则以“.biaodianfu.com”为后缀的一切域名均能够访问该Cookie。跨域名Cookie如今被普遍用在网络中，例如Google、Baidu、Sina等,而Session则不会支持跨域名访问。Session仅在他所在的域名内有效。仅运用Cookie或者仅运用Session可能完成不了理想的效果。这时应该尝试一下同时运用Cookie与Session。Cookie与Session的搭配运用在实践项目中会完成很多意想不到的效果。</li>
+</ol>
+<h4 id="三、web-Storage和Cookie的区别"><a href="#三、web-Storage和Cookie的区别" class="headerlink" title="三、web Storage和Cookie的区别"></a><strong>三、web Storage和Cookie的区别</strong></h4><p>Web Storage的概念和cookie相似，区别是它是为了更大容量存储设计的，cookie的大小是受限的，并且每次请求一个新的页面的时候cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可跨域调用。<br>除此之外，web storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。<br>但是cookie也是不可或缺的，cookie的作用是与服务器进行交互，作为http规范的一部分而存在的，而web Storage仅仅是为了在本地“存储”数据而生<br>sessionStorage、localStorage、cookie都是在浏览器端存储的数据，其中sessionStorage的概念很特别，引入了一个“浏览器窗口”的概念，sessionStorage是在同源的同窗口中，始终存在的数据，也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一个页面，数据仍然存在，关闭窗口后，sessionStorage就会被销毁，同时“独立”打开的不同窗口，即使是同一页面，sessionStorage对象也是不同的</p>
+<ol>
+<li>Web Storage带来的好处：<br>减少网络流量：一旦数据保存在本地之后，就可以避免再向服务器请求数据，因此减少不必要的数据请求，减少数据在浏览器和服务器间不必要的来回传递 </li>
+<li>快速显示数据：性能好，从本地读数据比通过网络从服务器上获得数据快得多，本地数据可以及时获得，再加上网页本身也可以有缓存，因此整个页面和数据都在本地的话，可以立即显示 </li>
+<li>临时存储：很多时候数据只需要在用户浏览一组页面期间使用，关闭窗口后数据就可以丢弃了，这种情况使用sessionStorage非常方便</li>
+</ol>
+<h4 id="四、浏览器本地存储与服务器端存储的区别"><a href="#四、浏览器本地存储与服务器端存储的区别" class="headerlink" title="四、浏览器本地存储与服务器端存储的区别"></a><strong>四、浏览器本地存储与服务器端存储的区别</strong></h4><p>其实数据既可以在浏览器本地存储，也可以在服务器端存储。</p>
+<p>浏览器可以保存一些数据，需要的时候直接从本地存取，sessionStorage、localStorage和cookie都是由浏览器存储在本地的数据 服务器端也可以保存所有用户的所有数据，但需要的时候浏览器要向服务器请求数据。<br>服务器端可以保存用户的持久数据，如数据库和云存储将用户的大量数据保存在服务器端<br>服务器端也可以保存用户的临时会话数据，服务器端的session机制，如jsp的session对象，数据保存在服务器上，实际上，服务器和浏览器之间仅需传递session id即可，服务器根据session id找到对应用户的session对象，会话数据仅在一段时间内有效，这个时间就是server端设置的session有效期</p>
+<p>服务器端保存所有的用户的数据，所以服务器端的开销较大，而浏览器端保存则把不同用户需要的数据分别保存在用户各自的浏览器中，浏览器端一般只用来存储小数据，而非服务可以存储大数据或小数据服务器存储数据安全一些，浏览器只适合存储一般数据</p>
+<h4 id="五、sessionStorage、localStorage和cookie的区别"><a href="#五、sessionStorage、localStorage和cookie的区别" class="headerlink" title="五、sessionStorage、localStorage和cookie的区别"></a><strong>五、sessionStorage、localStorage和cookie的区别</strong></h4><p>共同点：都是保存在浏览器端、且同源的<br>区别：<br>1、cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递，而sessionStorage和localStorage不会自动把数据发送给服务器，仅在本地保存。cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下<br>2、存储大小限制也不同，cookie数据不能超过4K，同时因为每次http请求都会携带cookie、所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大<br>3、数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭之前有效；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie：只在设置的cookie过期时间之前有效，即使窗口关闭或浏览器关闭<br>4、作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localstorage在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的<br>5、web Storage支持事件通知机制，可以将数据更新的通知发送给监听者<br>6、web Storage的api接口使用更方便</p>
+<h4 id="六、sessionStorage与页面js数据对象的区别"><a href="#六、sessionStorage与页面js数据对象的区别" class="headerlink" title="六、sessionStorage与页面js数据对象的区别"></a><strong>六、sessionStorage与页面js数据对象的区别</strong></h4><ul>
+<li>页面中一般的js对象的生存期仅在当前页面有效，因此刷新页面或转到另一页面这样的重新加载页面的情况，数据就不存在了</li>
+<li>而sessionStorage只要同源的同窗口中，刷新页面或进入同源的不同页面，数据始终存在，也就是说只要浏览器不关闭，数据仍然存在</li>
+</ul>
+<h3 id="13-说一下HTTP-3-0"><a href="#13-说一下HTTP-3-0" class="headerlink" title="13.说一下HTTP 3.0"></a>13.说一下HTTP 3.0</h3><p>HTTP&#x2F;3基于UDP协议实现了类似于TCP的多路复用数据流、传输可靠性等功能，这套功能被称为QUIC协议。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/webp/1500604/1604068246276-9b0f553d-3c6e-43a3-8185-8565f9fa1fb4.webp" alt="image"></p>
+<ol>
+<li>流量控制、传输可靠性功能：QUIC在UDP的基础上增加了一层来保证数据传输可靠性，它提供了数据包重传、拥塞控制、以及其他一些TCP中的特性。</li>
+<li>集成TLS加密功能：目前QUIC使用TLS1.3，减少了握手所花费的RTT数。</li>
+<li>多路复用：同一物理连接上可以有多个独立的逻辑数据流，实现了数据流的单独传输，解决了TCP的队头阻塞问题。</li>
+<li>快速握手：由于基于UDP，可以实现使用0 ~ 1个RTT来建立连接。</li>
+</ol>
+<h2 id="20-RestFul与RPC区别-RestFul-优点"><a href="#20-RestFul与RPC区别-RestFul-优点" class="headerlink" title="20.RestFul与RPC区别 RestFul 优点"></a>20.RestFul与RPC区别 RestFul 优点</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34440779">直接看博客</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chen qinxiong</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://cqx010113.github.io/2022/07/29/ji-suan-ji-wang-luo/">https://cqx010113.github.io/2022/07/29/ji-suan-ji-wang-luo/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Chen qinxiong</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/07/29/qian-duan-an-quan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="前端安全">
+                        
+                        <span class="card-title">前端安全</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chen qinxiong
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/07/29/html-mian-shi-ti/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="html知识点">
+                        
+                        <span class="card-title">html知识点</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chen qinxiong
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <a href="/about" target="_blank">Chen qinxiong</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "6";
+                        var startDate = "28";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cqx010113" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:cqx010113@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1957164010" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1957164010" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
