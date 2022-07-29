@@ -95,6 +95,19 @@
     
     
     <entry>
+      <title>组件高级通信</title>
+      <link href="/2022/05/07/zu-jian-gao-ji-tong-xin/"/>
+      <url>/2022/05/07/zu-jian-gao-ji-tong-xin/</url>
+      
+        <content type="html"><![CDATA[<h3 id="第一种：props"><a href="#第一种：props" class="headerlink" title="第一种：props"></a>第一种：props</h3><p>适用于的场景：父子组件通信</p><p>注意事项：如果父组件给子组件传递数据（函数），本质是子组件给父组件传递数据</p><p>如果父组件给子组件传递数据（非函数），本质是父组件给子组件传递数据</p><p>三种书写方式：</p><ol><li><p>第一种方式（只接收）：<code>props:[&#39;name&#39;] </code></p></li><li><p>第二种方式（限制类型）：<code>props:&#123;name:String&#125;</code></p></li><li><p>第三种方式（限制类型、限制必要性、指定默认值）：</p><pre class=" language-js"><code class="language-js">props<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>    name<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>    type<span class="token punctuation">:</span>String<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//类型</span>    required<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//必要性</span>    <span class="token keyword">default</span><span class="token punctuation">:</span><span class="token string">'老王'</span> <span class="token comment" spellcheck="true">//默认值</span>    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre></li></ol><blockquote><p>备注：props是只读的，Vue底层会监测你对props的修改，如果进行了修改，就会发出警告，若业务需求确实需要修改，那么请复制props的内容到data中一份，然后去修改data中的数据。</p></blockquote><h3 id="第二种：自定义事件"><a href="#第二种：自定义事件" class="headerlink" title="第二种：自定义事件"></a>第二种：自定义事件</h3><p>适用于场景：子组件给父组件传递数据</p><p>$on与$emit</p><h3 id="第三种：全局事件总线"><a href="#第三种：全局事件总线" class="headerlink" title="第三种：全局事件总线"></a>第三种：全局事件总线</h3><p>适用于场景：万能</p><p>Vue.prototype.$bus &#x3D; this;</p><h3 id="第四种：pubsub-js，在React框架中使用比较多"><a href="#第四种：pubsub-js，在React框架中使用比较多" class="headerlink" title="第四种：pubsub-js，在React框架中使用比较多"></a>第四种：pubsub-js，在React框架中使用比较多</h3><p>适用于场景：万能</p><h3 id="第五种：Vuex"><a href="#第五种：Vuex" class="headerlink" title="第五种：Vuex"></a>第五种：Vuex</h3><p>使用场景：万能</p><h3 id="第六种：插槽"><a href="#第六种：插槽" class="headerlink" title="第六种：插槽"></a>第六种：插槽</h3><p>适用于场景：父子组件通信（标签的父子关系）</p><p>默认插槽，具名插槽，作用域插槽</p><h4 id="事件的注意事项："><a href="#事件的注意事项：" class="headerlink" title="事件的注意事项："></a>事件的注意事项：</h4><p>事件：系统事件 click、双击、鼠标系列等等</p><p>​自定义事件</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>函数防抖</title>
       <link href="/2022/05/07/han-shu-fang-dou-yu-jie-liu/"/>
       <url>/2022/05/07/han-shu-fang-dou-yu-jie-liu/</url>
