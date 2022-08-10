@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Vue中$refs和$el的使用</title>
+      <link href="/2022/08/10/vue-zhong-refs-he-el-de-shi-yong/"/>
+      <url>/2022/08/10/vue-zhong-refs-he-el-de-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Vue中-refs和-el的使用"><a href="#Vue中-refs和-el的使用" class="headerlink" title="Vue中$refs和$el的使用"></a>Vue中$refs和$el的使用</h2><h3 id="ref-给元素或者子组件注册引用信息"><a href="#ref-给元素或者子组件注册引用信息" class="headerlink" title="ref: 给元素或者子组件注册引用信息"></a>ref: 给元素或者子组件注册引用信息</h3><h4 id="ref有三种用法："><a href="#ref有三种用法：" class="headerlink" title="ref有三种用法："></a><strong>ref有三种用法：</strong></h4><h5 id="1-ref加在普通元素上"><a href="#1-ref加在普通元素上" class="headerlink" title="1.ref加在普通元素上"></a>1.ref加在普通元素上</h5><p>获取用this.$ref.xxx可以获取到dom元素</p><pre><code>&lt;div ref=&quot;system&quot;&gt;测试&lt;/div&gt;// 获取mounted() &#123;  console.log(this.$refs.system);&#125;</code></pre><h5 id="2-ref加在子组件上"><a href="#2-ref加在子组件上" class="headerlink" title="2.ref加在子组件上"></a>2.ref加在子组件上</h5><p>用this.$ref.xxx可以获取到组件实例，可以使用子组件的所有方法</p><pre><code>// this.$ref.xxx.方法名()// 父组件&lt;contact-info ref=&quot;contactInfo&quot;/&gt;import ContactInfo from &#39;./ContactInfo&#39;components: &#123; ContactInfo &#125;,mounted() &#123;   this.$refs.contactInfo.initVal(data) // 调用子组件方法&#125;// 子组件methods: &#123;  initVal(data)&#123;    Object.keys(this.contactInfo).forEach(val=&gt;&#123;      this.contactInfo[val] = data[val]    &#125;)  &#125;&#125;</code></pre><h5 id="3-利用v-for和ref组合获取一组dom节点"><a href="#3-利用v-for和ref组合获取一组dom节点" class="headerlink" title="3.利用v-for和ref组合获取一组dom节点"></a>3.利用v-for和ref组合获取一组dom节点</h5><p>在通过v-for遍历获取一组ref时记得加：，即:ref&#x3D;”xxx”</p><p>当v-for用于元素或者组件的时候，引用信息将是包含dom节点或者组件实例的数组</p><h5 id="4-ref使用注意点"><a href="#4-ref使用注意点" class="headerlink" title="4.ref使用注意点"></a>4.ref使用注意点</h5><ol><li>获取ref要确保在dom已经渲染完成，比如可以在vue生命周期的mounted() {}钩子函数中调用，或者可以在this.$nextTick(() &#x3D;&gt; {})中调用。</li><li>在页面初始渲染的时候是不能访问ref的，因为此时ref还不存在， $ref也不是响应式的，不能在模板中做数据绑定。</li><li>在vue中用ref来获取dom的时候，可能会出现this. $refs.xxx 为undefined的情况<ol><li>场景一：在created()中使用在这个生命周期中进行数据观测、属性和方法的运算，watch事件回调，但是此时dom还没有渲染完成，是不能通过ref调用dom的。<br><strong>解决:</strong> 在mounted中调用或者使用nextTick。</li><li>场景二：父元素或者当前元素使用了v-if或者v-show<br>因为 $ref不是响应式的，只在组件渲染完之后才会生效，在初始渲染的时候是不存在的<br>因为是非响应式的，所有动态加载的模板更新它都无法相应的变化<br><strong>解决:</strong> 通过setTimeout(() &#x3D;&gt; {…}, 0)来实现</li></ol></li></ol><h3 id="el-获取Vue组件实例挂载的DOM元素"><a href="#el-获取Vue组件实例挂载的DOM元素" class="headerlink" title="$el: 获取Vue组件实例挂载的DOM元素"></a>$el: 获取Vue组件实例挂载的DOM元素</h3><pre><code>// 子组件&lt;template&gt;  &lt;div&gt;    测试  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;export default &#123;  name: &#39;TestComs&#39;&#125;;&lt;/script&gt;</code></pre><pre><code>// 父组件   &lt;test ref=&quot;testCom&quot; /&gt;   &lt;div ref=&quot;test&quot;&gt;11&lt;/div&gt;  mounted() &#123;    console.log(this.$refs.testCom, &#39;组件ref&#39;); // 获取组件实例    console.log(this.$refs.testCom.$el, &#39;组件el&#39;); // 获取组件实例的dom元素    console.log(this.$refs.test, &#39;元素ref&#39;); // 获取dom元素    console.log(this.$refs.test.$el, &#39;元素el&#39;); // $el用于vue组件，普通dom元素不能用  &#125;</code></pre><p>结果如下</p><p><img src="https://img-blog.csdnimg.cn/0966e3813d444cf98d16d1988db36169.png" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SASS笔记</title>
       <link href="/2022/08/04/sass-bi-ji/"/>
       <url>/2022/08/04/sass-bi-ji/</url>
