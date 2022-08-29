@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JavaScript 单例模式, 前端小橙">
-    <meta name="description" content="JavaScript 单例模式单例模式也称为单体模式，规定一个类只有一个实例，并且提供可全局访问点；
-在读这篇文章之前，也许你对单例模式的概念感到模糊或者不清楚，但是其实在日常的开发中你肯定用到过单例模式；
-　　JavaScript中没有类">
+    <meta name="keywords" content="Object.defineProperty, 前端小橙">
+    <meta name="description" content="Object.defineProperty方法（详解）OK，这一篇主要想说一下Object.defineProperty这个方法。
+这个方法也是Vue数据双向绑定原理的常见面试题所以也是有必要好好掌握的哦
+首先我们知道JS中是支持面向对象编">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -30,7 +30,7 @@
     </style>
 
 
-    <title>JavaScript 单例模式 | 前端小橙</title>
+    <title>Object.defineProperty | 前端小橙</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JavaScript 单例模式</h1>
+                    <h1 class="description center-align post-title">Object.defineProperty</h1>
                 </div>
             </div>
         </div>
@@ -431,7 +431,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-16
+                    2022-08-29
                 </div>
                 
 
@@ -452,131 +452,171 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="JavaScript-单例模式"><a href="#JavaScript-单例模式" class="headerlink" title="JavaScript 单例模式"></a>JavaScript 单例模式</h2><p>单例模式也称为单体模式，规定一个类只有一个实例，并且提供可全局访问点；</p>
-<p>在读这篇文章之前，也许你对单例模式的概念感到模糊或者不清楚，但是其实在日常的开发中你肯定用到过单例模式；</p>
-<p>　　JavaScript中没有类的定义，单例模式的特点是”唯一“和”全局访问“，那么我们可以联想到JavaScript中的全局对象，利用ES6的let不允许重复声明的特性，刚好符合这两个特点；是的，全局对象是最简单的单例模式；</p>
-<pre><code>let obj = &#123;
-    name:&quot;W3Cschool&quot;,
-    getName:function()&#123;&#125;
+                <h1 id="Object-defineProperty方法（详解）"><a href="#Object-defineProperty方法（详解）" class="headerlink" title="Object.defineProperty方法（详解）"></a>Object.defineProperty方法（详解）</h1><p>OK，这一篇主要想说一下Object.defineProperty这个方法。</p>
+<p>这个方法也是Vue数据双向绑定原理的常见面试题<br>所以也是有必要好好掌握的哦</p>
+<p>首先我们知道JS中是支持面向对象编程的，也是有着对象和类这样的概念。<br>我们常见创建对象的方法应该是这样：</p>
+<pre><code>var p1 =&#123;
+    name:&quot;lisi&quot;,
 &#125;
 </code></pre>
-<p>上述代码中可以知道obj就是一个单例，因为obj刚好就符合单例模式的两大特点：”唯一”和”可全局访问”；</p>
-<p>但是我们并不建议这么实现单例，因为全局对象&#x2F;全局变量会有一些弊端：</p>
-<ol>
-<li>污染命名空间（容易变量名冲突）</li>
-<li>维护时不容易管控 (搞不好就直接覆盖了)</li>
-</ol>
-<p>简单版单例模式：</p>
-<p>​    分析：只能有一个实例，所以我们需要使用if分支来判断，如果已经存在就直接返回，如果不存在就新建一个实例；</p>
-<pre><code>let Singleton = function(name)&#123;
-    this.name = name;
-    this.instance = null; 
-&#125;
-
-Singleton.prototype.getName = function()&#123;
-    console.log(this.name);
-&#125;
-
-Singleton.getInstance = function(name)&#123;
-    if(this.instance)&#123;
-        return this.instance; 
-    &#125;
-    return this.instance = new Singleton(name);
-&#125;
-
-let winner = Singleton.getInstance(&quot;winner&quot;);   //winner
-console.log(winner.getName());
-let sunner = Singleton.getInstance(&quot;sunner&quot;);   //winner
-console.log(sunner.getName())
+<p>那我们Object.defineProperty这个方法有什么用呢?</p>
+<p>这个方法接收三个参数:</p>
+<p>1.属性所在的对象<br>2.属性的名字<br>3.一个描述符对象</p>
+<h4 id="这个描述符对象是个什么东西呢？"><a href="#这个描述符对象是个什么东西呢？" class="headerlink" title="这个描述符对象是个什么东西呢？"></a>这个描述符对象是个什么东西呢？</h4><p>他可以是 数据属性：</p>
+<p>1.configurable:表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性，默认值为false。</p>
+<p>2.enumerable：表示能否通过for in循环访问属性，默认值为false</p>
+<p>3.writable：表示能否修改属性的值。默认值为false。</p>
+<p>4.value：包含这个属性的数据值。默认值为undefined。</p>
+<p>现在我们就对p1这个对象，用这个方法来玩一下</p>
+<pre><code>Object.defineProperty(p1,&quot;name&quot;,&#123;
+    configurable : false,
+&#125;)
+console.log(p1); //&#123; name: &#39;lisi&#39; &#125;
+delete p1.name;
+console.log(p1); //&#123; name: &#39;lisi&#39; &#125;
 </code></pre>
-<p>上面代码中我们是通过一个变量 instance 的值来进行判断是否已存在实例，如果存在就直接返回 this.instance，如果不存在，就新建实例并赋值给 instance；</p>
-<p>　　但是上面的代码还是存在问题，因为创建对象的操作和判断实例的操作耦合在一起，并不符合”单一职责原则“；</p>
-<p>改良版：</p>
-<p>思路：通过一个<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/javascript/js-function-closures.html">闭包</a>，来实现判断实例的操作；</p>
-<pre><code>let CreateSingleton = (function()&#123;
-    let instance = null;
-    return function(name)&#123;
-        this.name = name;
-        if(instance)&#123;
-            return instance
+<p>通过这个方法设置好configurable 这个属性，delete就不能把name属性给删除掉了。</p>
+<pre><code>Object.defineProperty(p1,&quot;age&quot;,&#123;
+    writable :false,
+    value : 15,
+&#125;)
+console.log(p1.age); //15
+p1.age = 20;
+console.log(p1.age); //15
+</code></pre>
+<p>然后我们给p1这个对象新加了一个age属性，并且设置成只读的。<br>这样我们就无法修改这个age属性了。</p>
+<pre><code>Object.defineProperty(p1,&quot;age&quot;,&#123;
+    enumerable:false
+&#125;)
+for(var i in p1)&#123;
+    console.log(p1[i]);
+&#125; // lisi
+</code></pre>
+<p>在通过这个方法给enumerable设置为false，这样对象就不能通过迭代器遍历出age这个属性的值了。</p>
+<p>通过这几个例子，我们基本那就了解Object.defineProperty这个方法的使用以及数据属性是做什么的了。<br>那该方法的第三个参数除了可以是数据属性，也可以是访问器属性。</p>
+<p>1.get：在读取属性时调用的函数，默认值是undefined 2..set：在写入属性的时候调用的函数，默认值是undefined<br>现在我们来用这两个方法来实践一下：</p>
+<pre><code>var book = &#123;
+    _year : 2004,
+    edition : 1
+&#125;
+
+Object.defineProperty(book,&quot;year&quot;,&#123;
+    get: function()&#123;
+        return this._year
+    &#125;,
+    set: function(newYear)&#123;
+        if(newYear &gt; 2004)&#123;
+            this._year = newYear;
+            this.edition += newYear - 2004
         &#125;
-        return instance = this;
     &#125;
-&#125;)()
+&#125;)
 
-
-CreateSingleton.prototype.getName = function()&#123;
-        console.log(this.name);
-&#125;
-
-let winner = new CreateSingleton(&quot;winner&quot;);  //winner
-console.log(winner.getName());
-let sunner = new CreateSingleton(&quot;sunner&quot;);  //winner
-console.log(sunner.getName())
+book.year = 2005;
+console.log(book.edition); // 2
+console.log(book._year); //2005
 </code></pre>
-<p>代理版单例模式：</p>
-<p>　　通过代理的形式，将创建对象的操作和实例判断的操作进行解耦拆分，实现更小粒度的划分，符合”单一职责原则“；</p>
-<pre><code>let ProxyCreateSingleton = (function()&#123;
-    let instance = null;
-    return function(name)&#123;
-        if(instance)&#123;
-            return instance
+<p>由于get方法返回_year的值，set方法通过计算来确定正确的版本。<br>因此把year的值设置为2005会导致edition的值变为2.</p>
+<p>OK，关于Object.defineProperty方法的第三个参数的两种属性也就说完了。</p>
+<p>最后我们再说一下如何进行定义多个属性</p>
+<pre><code>var student = &#123;&#125;;
+Object.defineProperties(student,&#123;
+    name:&#123;
+        writable:false,
+        value:&quot;lisi&quot;
+    &#125;,
+    age : &#123;
+        writable:true,
+        value : 16,
+    &#125;,
+    sex:&#123;
+        get()&#123;
+            return &#39;男&#39;;
+        &#125;,
+        set(v)&#123;
+            p1.sex = v
         &#125;
-        return instance = new Singlton(name);
     &#125;
-&#125;)();
-    
-let Singlton = function(name)&#123;
-    this.name = name;
-&#125; 
+&#125;)
 
-Singlton.prototype.getName = function()&#123;
-    console.log(this.name);
-&#125;
-
-let winner = new ProxyCreateSingleton(&quot;winner&quot;);
-console.log(winner.getName());
-let sunner = new ProxyCreateSingleton(&quot;sunner&quot;);
-console.log(sunner.getName());
+p1.sex = &quot;男&quot;;
+console.log(student.name + &quot;:&quot; + student.age);
+console.log(p1.sex); // 男
+student.sex = &quot;女&quot;;
+console.log(student.sex); //男
+console.log(p1.sex); // 女
 </code></pre>
-<p>上面的代码中，ProxyCreateSingleton()只负责判断实例，Singlton只负责创建对象和赋值；</p>
-<p> 惰性单例模式</p>
-<p>　　 我们经常会有这样的场景：页面多次调用都有弹窗提示，只是提示内容不一样；</p>
-<p>　　 这个时候我们可以立马想到是单例模式，弹窗就是单例实例，提示内容是参数传递；我们可以用惰性单例模式来实现它；</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-  &lt;title&gt;W3Cschool&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div id=&quot;loginBtn&quot;&gt;W3Cschool&lt;/div&gt;
-&lt;/body&gt;
-&lt;script&gt;
-  let getSingleton = function (fn) &#123;
-    var result;
-    return function () &#123;
-      return result || (result = fn.apply(this, arguments)); // 确定this上下文并传递参数
-    &#125;
+<p>OK，关于写法应该也没有什么难点。</p>
+<p>最后我在附上一个模拟Vue中v-module数据双向绑定原理的代码：</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+<pre><code>&lt;style&gt;
+  #myInput &#123;
+    width: 400px;
+    height: 50px;
+    font-size: 40px;
+    color: red;
   &#125;
-  let createAlertMessage = function (html) &#123;
-    var div = document.createElement(&#39;div&#39;);
-    div.innerHTML = html;
-    div.style.display = &#39;none&#39;;
-    document.body.appendChild(div);
-    return div;
+  #contain &#123;
+    margin-top: 20px;
+    width: 400px;
+    height: 200px;
+    border: 1px solid salmon;
   &#125;
-  let createSingleAlertMessage = getSingleton(createAlertMessage);
-  document.getElementById(&#39;loginBtn&#39;).onclick = function () &#123;
-    let alertMessage = createSingleAlertMessage(&#39;&lt;a href=&quot;https://www.w3cschool.cn/&quot; style=&quot;text-decoration:none;&quot; target=&quot;_blank&quot;&gt;W3Cschool.cn&lt;/a&gt;&#39;);
-    alertMessage.style.display = &#39;block&#39;;
-  &#125;
+&lt;/style&gt;
+</code></pre>
+  </head>
+  <body>
+    <input id="myInput" type="text" />
+    <div id="contain"></div>
+
+<pre><code>&lt;script&gt;
+  var text;
+  window.data = &#123;&#125;;
+  var oIn = document.getElementById(&quot;myInput&quot;);
+  var oDiv = document.getElementById(&quot;contain&quot;);
+
+  oIn.addEventListener(&quot;input&quot;, function (e) &#123;
+    text = e.target.value;
+    console.log(text);
+    window.data.value = text;
+  &#125;);
+  Object.defineProperty(window.data, &quot;value&quot;, &#123;
+    get() &#123;
+      return &quot;&quot;;
+    &#125;,
+    set(v) &#123;
+      oDiv.innerHTML = v;
+    &#125;,
+  &#125;);
 &lt;/script&gt;
-&lt;/html&gt;
 </code></pre>
-<p>惰性单例是指的是页面开始加载的时候我们的实例是没有进行创建的，是当我们点击页面的div之后才开始创建实例（按需创建），这可以提高我们的网页性能，加快我们的页面渲染速度；</p>
+  </body>
+</html>
+
+<pre><code>
+
+</code></pre>
 
                 
             </div>
@@ -603,7 +643,7 @@ console.log(sunner.getName());
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cqx010113.github.io/2022/08/16/javascript-dan-li-mo-shi/">https://cqx010113.github.io/2022/08/16/javascript-dan-li-mo-shi/</a>
+                    <a href="https://cqx010113.github.io/2022/08/29/object.defineproperty-fang-fa-xiang-jie/">https://cqx010113.github.io/2022/08/29/object.defineproperty-fang-fa-xiang-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -812,9 +852,10 @@ console.log(sunner.getName());
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/08/29/object.defineproperty-fang-fa-xiang-jie/">
                     <div class="card-image">
@@ -832,9 +873,9 @@ console.log(sunner.getName());
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -843,6 +884,7 @@ console.log(sunner.getName());
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -853,13 +895,13 @@ console.log(sunner.getName());
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/10/vue-zhong-refs-he-el-de-shi-yong/">
+                <a href="/2022/08/16/javascript-dan-li-mo-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Vue中$refs和$el的使用">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="JavaScript 单例模式">
                         
-                        <span class="card-title">Vue中$refs和$el的使用</span>
+                        <span class="card-title">JavaScript 单例模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -870,7 +912,7 @@ console.log(sunner.getName());
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
                             </span>
                         <span class="publish-author">
                             
