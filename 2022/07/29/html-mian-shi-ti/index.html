@@ -673,12 +673,16 @@ src：表示对资源的引用，它指向的内容会嵌入到当前标签所�
 <li>常见的有：<code>&lt;br&gt;</code>、<code>&lt;hr&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;input&gt;</code>、<code>&lt;link&gt;</code>、<code>&lt;meta&gt;</code>；</li>
 <li>鲜见的有：<code>&lt;area&gt;</code>、<code>&lt;base&gt;</code>、<code>&lt;col&gt;</code>、<code>&lt;colgroup&gt;</code>、<code>&lt;command&gt;</code>、<code>&lt;embed&gt;</code>、<code>&lt;keygen&gt;</code>、<code>&lt;param&gt;</code>、<code>&lt;source&gt;</code>、<code>&lt;track&gt;</code>、<code>&lt;wbr&gt;</code>。</li>
 </ul>
-<h3 id="9-说一下-web-worker"><a href="#9-说一下-web-worker" class="headerlink" title="9. 说一下 web worker"></a>9. 说一下 web worker</h3><p>在 HTML 页面中，如果在执行脚本时，页面的状态是不可相应的，直到脚本执行完成后，页面才变成可相应。web worker 是运行在后台的 js，独立于其他脚本，不会影响页面的性能。 并且通过 postMessage 将结果回传到主线程。这样在进行复杂操作的时候，就不会阻塞主线程了。 </p>
-<p>如何创建 web worker： </p>
+<h3 id="9-说一下-web-worker"><a href="#9-说一下-web-worker" class="headerlink" title="9. 说一下 web worker"></a>9. 说一下 web worker</h3><p><strong>web worker 的作用就是浏览器作为宿主环境给单线程的 JS 创造多线程运行环境</strong>，允许主线程创建 worker 线程，分配任务给后者，主线程运行的同时 worker 线程也在运行，相互不干扰，在 worker 线程运行结束后把结果返回给主线程。这样做的好处是<strong>主线程可以把计算密集型或高延迟的任务交给worker线程执行，这样主线程就会变得轻松，不会被阻塞或拖慢</strong>。这并不意味着JS语言本身支持了多线程能力，而是浏览器作为宿主环境提供了JS一个多线程运行的环境。</p>
+<p>不过因为worker一旦新建，就会一直运行，不会被主线程的活动打断，这样有利于随时响应主线程的通性，但是也会造成资源的浪费，所以不应过度使用，用完注意关闭。</p>
+<p><strong>限制</strong></p>
+<p>worker线程的使用有一些注意点</p>
 <ol>
-<li>检测浏览器对于 web worker 的支持性 </li>
-<li>创建 web worker 文件（js，回传函数等） </li>
-<li>创建 web worker 对象</li>
+<li><strong>同源限制</strong> worker线程执行的脚本文件必须和主线程的脚本文件同源，这是当然的了，总不能允许worker线程到别人电脑上到处读文件吧</li>
+<li><strong>文件限制</strong> 为了安全，worker线程无法读取本地文件，它所加载的脚本必须来自网络，且需要与主线程的脚本同源</li>
+<li><strong>DOM操作限制</strong> worker线程在与主线程的window不同的另一个全局上下文中运行，其中无法读取主线程所在网页的DOM对象，也不能获取 <code>document</code>、<code>window</code>等对象，但是可以获取<code>navigator</code>、<code>location(只读)</code>、<code>XMLHttpRequest</code>、<code>setTimeout族</code>等浏览器API。</li>
+<li><strong>通信限制</strong> worker线程与主线程不在同一个上下文，不能直接通信，需要通过<code>postMessage</code>方法来通信。</li>
+<li><strong>脚本限制</strong> worker线程不能执行<code>alert</code>、<code>confirm</code>，但可以使用 <code>XMLHttpRequest</code> 对象发出ajax请求。</li>
 </ol>
 <h3 id="10-HTML5的离线储存怎么使用，它的工作原理是什么"><a href="#10-HTML5的离线储存怎么使用，它的工作原理是什么" class="headerlink" title="10. HTML5的离线储存怎么使用，它的工作原理是什么"></a>10. HTML5的离线储存怎么使用，它的工作原理是什么</h3><p>离线存储指的是：在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。</p>
 <p><strong>原理：</strong>HTML5的离线存储是基于一个新建的 <code>.appcache</code> 文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示</p>
@@ -791,6 +795,19 @@ offline.html
 </blockquote>
 <p>当我们把一个 DocumentFragment 节点插入文档树时，插入的不是 DocumentFragment 自身，而是它的所有子孙节点。在频繁的DOM操作时，我们就可以将DOM元素插入DocumentFragment，之后一次性的将DocumentFragment（包括了其所有的子孙节点）插入文档中。和直接操作DOM相比，将DocumentFragment 节点插入DOM树时，只会触发一次回流，这样就大大提高了页面的性能。</p>
 <p>同时 DocumentFragment 也会被用来实现 WebComponent（原生组件）</p>
+<h3 id="21-link和-import的区别"><a href="#21-link和-import的区别" class="headerlink" title="21.link和@import的区别"></a>21.link和@import的区别</h3><pre><code>link
+&lt;link rel=&quot;stylesheet&quot; rev=&quot;stylesheet&quot; href=&quot;CSS文件&quot; type=&quot;text/css&quot; media=&quot;all&quot; /&gt;
+
+@import
+ 
+&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt; 
+    @import url(&quot;CSS文件&quot;); 
+&lt;/style&gt; 
+</code></pre>
+<p>相同点：link和@import都能用来引入css</p>
+<p>区别：1.从属关系：link是HTML提供的标签，不仅可以加载css，还可以定义ref属性；@import是css提供的语法，只能导入样式表</p>
+<p>2.兼容性问题：link是html标签，没有兼容性问题，而@import存在兼容性问题</p>
+<p>3.加载顺序：link在页面加载的同时一起加载，而@import引入的css要等页面加载完之后再加载 </p>
 
                 
             </div>

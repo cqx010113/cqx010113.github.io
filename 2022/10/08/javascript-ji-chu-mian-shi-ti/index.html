@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="查漏补缺（一）, 前端小橙">
-    <meta name="description" content="查漏补缺（一）1.src和href的区别href：是指向网络资源的所在位置，建立和当前锚点或当前文档之间的链接，用于超链接
-表示超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系
-当浏览器解析">
+    <meta name="keywords" content="JavaScript基础面试题, 前端小橙">
+    <meta name="description" content="JavaScript基础面试题1.描述一下document.load和document.ready一般来说页面加载完成有两种事件
+1.load是当页面所有资源全部加载完成之后（DOM文档树、CSS、JS、图片）执行的一个函数
+$(docum">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -30,7 +30,7 @@
     </style>
 
 
-    <title>查漏补缺（一） | 前端小橙</title>
+    <title>JavaScript基础面试题 | 前端小橙</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">查漏补缺（一）</h1>
+                    <h1 class="description center-align post-title">JavaScript基础面试题</h1>
                 </div>
             </div>
         </div>
@@ -431,7 +431,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-16
+                    2022-10-08
                 </div>
                 
 
@@ -452,28 +452,125 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="查漏补缺（一）"><a href="#查漏补缺（一）" class="headerlink" title="查漏补缺（一）"></a>查漏补缺（一）</h3><h4 id="1-src和href的区别"><a href="#1-src和href的区别" class="headerlink" title="1.src和href的区别"></a>1.src和href的区别</h4><p>href：是指向网络资源的所在位置，建立和当前锚点或当前文档之间的链接，用于超链接</p>
-<p>表示超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系</p>
-<link href="common.css" rel="stylesheet"/>当浏览器解析到这一句的时候会识别该文档为css文件，会下载并且不会停止对当前文档的处理，这也是为什么建议使用link方式来加载css而不是使用@import。 
-
-<p>src：是指向外部本地外部资源的位置，指向的内部会迁入到文档中的当前标签的所在位置；在请求src资源时会将指向的资源下载到当前文档，例如js脚本、图片等</p>
-<p>表示资源引用，表示替换当前元素，用在img、script等；</p>
-<script src="js.js"></script>当浏览器解析到这一句的时候会暂停其他资源的下载和处理，直至将该资源加载，编译，执行完毕，图片和框架等元素也是如此，类似于该元素所指向的资源嵌套如当前标签内，这也是为什么要把js饭再底部而不是头部。
-
-<p>区别：浏览器遇到href会并行下载资源并且不会停止对当前文档的处理，但是遇到src时候会暂停其他资源的下载和处理，直到将该资源加载完毕</p>
-<h4 id="2-HTTP与HTTPS的区别"><a href="#2-HTTP与HTTPS的区别" class="headerlink" title="2.HTTP与HTTPS的区别"></a>2.HTTP与HTTPS的区别</h4><p>①HTTP明文传输，数据都是未加密的，安全性比较差，HTTPS数据都是加密的，安全性比较高</p>
-<p>②HTTPS需要用到CA证书，而HTTP不需要</p>
-<p>③HTTP的响应速度比HTTPS快，因为HTTP使用TCP三次握手建立连接，客户端和服务端需要交换三个包，而HTTPS除了TCP的三个包，还有ssl握手需要9个包，一共是12个包</p>
-<p>④HTTP的端口是80，而HTTPS的端口是443</p>
-<ul>
-<li>第一次握手：客户端尝试连接服务器，向服务器发送 syn 包（同步序列编号Synchronize Sequence Numbers），syn&#x3D;j，客户端进入 SYN_SEND 状态等待服务器确认</li>
-<li>第二次握手：服务器接收客户端syn包并确认（ack&#x3D;j+1），同时向客户端发送一个 SYN包（syn&#x3D;k），即 SYN+ACK 包，此时服务器进入 SYN_RECV 状态</li>
-<li>第三次握手：第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack&#x3D;k+1），此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手</li>
-</ul>
-<h4 id="3-Vue中路由配置项meta的作用"><a href="#3-Vue中路由配置项meta的作用" class="headerlink" title="3.Vue中路由配置项meta的作用"></a>3.Vue中路由配置项meta的作用</h4><p><strong>meta简单来说就是路由元信息 也就是每个路由身上携带的信息。</strong></p>
-<p>①能做面包屑效果</p>
-<p>②能区分用户权限</p>
-<p>③在路由导航守卫跳转的时候判断有没有这个信息，如果有就跳转</p>
+                <h3 id="JavaScript基础面试题"><a href="#JavaScript基础面试题" class="headerlink" title="JavaScript基础面试题"></a>JavaScript基础面试题</h3><h4 id="1-描述一下document-load和document-ready"><a href="#1-描述一下document-load和document-ready" class="headerlink" title="1.描述一下document.load和document.ready"></a>1.描述一下document.load和document.ready</h4><p>一般来说页面加载完成有两种事件</p>
+<p>1.load是当页面所有资源全部加载完成之后（DOM文档树、CSS、JS、图片）执行的一个函数</p>
+<pre><code>$(document).load(function)
+&#123;
+    .....code....
+&#125;
+</code></pre>
+<p>2.$(document).ready()是当DOM文档树加载完成之后执行的一个函数，所以比load较快执行</p>
+<pre><code>//document ready
+$(document).ready(function()&#123;
+    ...code...
+&#125;)
+//document ready 简写
+$(function()&#123;
+    ...code...
+&#125;)
+</code></pre>
+<h4 id="2-x3D-x3D-和-x3D-x3D-x3D-的区别"><a href="#2-x3D-x3D-和-x3D-x3D-x3D-的区别" class="headerlink" title="2.&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;的区别"></a>2.&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;的区别</h4><p>①对于string、number等基础类型，&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;是有区别的</p>
+<p>不同类型间比较，&#x3D;&#x3D;会转化为同一类型后比较值是否相等，&#x3D;&#x3D;&#x3D;如果类型不同，其结果就是不等</p>
+<p>同类型比较，直接比较值是否相等</p>
+<p>②对于Array、Object等高级类型，&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;是没有区别的</p>
+<p>比较指针所指向地址</p>
+<p>③基础类型和高级类型</p>
+<p>&#x3D;&#x3D;会将高级类型转化为基础类型，进行值比较</p>
+<p>&#x3D;&#x3D;&#x3D;因为类型不同结果为false</p>
+<h4 id="3-js在new做了什么"><a href="#3-js在new做了什么" class="headerlink" title="3.js在new做了什么"></a>3.js在new做了什么</h4><p>1.创建一个空对象</p>
+<p>2.改变原型，让对象的原型指向构造函数的prototype属性</p>
+<p>3.让函数的this指向这个对象，执行构造函数的代码</p>
+<p>4.判断函数的返回值，如果是值类型，返回创建的对象。如果是引用类型，返回引用类型的对象</p>
+<h4 id="4-什么是事件循环机制"><a href="#4-什么是事件循环机制" class="headerlink" title="4.什么是事件循环机制"></a>4.什么是事件循环机制</h4><p>js是一门单线程的语言，它将代码分为同步代码和异步代码。在执行代码的过程中，如果遇到同步代码，就把同步代码放入到函数调用栈中去执行，如果遇到异步代码，就将它放入到event table里面，等待特定事件完成后，再来将相关的回调函数放入到任务队列中去。</p>
+<p>任务队列有宏任务和微任务两种队列，宏任务包括script、setTimeout、setInterval、setImmediate，微任务包括promise.then，process.nextTick，mutationObserver。</p>
+<p>整体执行流程就是将调用栈的同步代码执行完后，查看微任务队列里面是否有微任务，如果有的话则拿出来执行，在这个过程中产生的微任务也需要在后面执行，待微任务队列清空后，再从宏任务队列中拿出一个宏任务来执行，以此循环。</p>
+<h4 id="5-前端性能优化"><a href="#5-前端性能优化" class="headerlink" title="5.前端性能优化"></a>5.前端性能优化</h4><p>减少http请求数，设置http缓存，使用cdn，压缩前端代码，样式置于页面顶部header中，脚本至于页面底部，减少DOM操作，资源按需加载，服务端开启gzip</p>
+<h4 id="6-函数柯里化"><a href="#6-函数柯里化" class="headerlink" title="6.函数柯里化"></a>6.函数柯里化</h4><p>函数柯里化将使用多个参数的函数转化为一系列使用一个参数的函数，他返回一个新的函数，用新函数来处理剩余的参数，是一个典型的闭包使用，他的作用主要用来参数复用，提前确认和延迟计算</p>
+<h4 id="7-localStorage能不能大量使用"><a href="#7-localStorage能不能大量使用" class="headerlink" title="7.localStorage能不能大量使用"></a>7.localStorage能不能大量使用</h4><p>localStorage不建议大量使用，会影响性能</p>
+<h4 id="8-JS-windows对象详解"><a href="#8-JS-windows对象详解" class="headerlink" title="8.JS windows对象详解"></a>8.JS windows对象详解</h4><p>window 是客户端浏览器对象模型的基类，window 对象是客户端 JavaScript 的全局对象。一个 window 对象实际上就是一个独立的窗口，对于框架页面来说，浏览器窗口每个框架都包含一个 window 对象。</p>
+<h5 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a><strong>全局作用域</strong></h5><p>在客户端浏览器中，window 对象是访问 BOM 的接口，如引用 document 对象的 document 属性，引用自身的 window 和 self 属性等。同时 window 也为客户端 JavaScript 提供全局作用域。</p>
+<p>示例</p>
+<p>由于 window 是全局对象，因此所有的全局变量都被解析为该对象的属性。</p>
+<pre><code>var a = &quot;window.a&quot;;  //全局变量
+    function f () &#123;  //全局函数
+    console.log(a);
+&#125;
+console.log(window.a);  //返回字符串“window.a”
+复制代码
+</code></pre>
+<p>window.f(); &#x2F;&#x2F;返回字符串“window.a”</p>
+<p>使用 delete 运算符可以删除属性，但是不能删除变量。</p>
+<h5 id="访问客户端对象"><a href="#访问客户端对象" class="headerlink" title="访问客户端对象"></a>访问客户端对象</h5><p>使用 window 对象可以访问客户端其他对象，这种关系构成浏览器对象模型，window 对象代表根节点，浏览器对象关系的关系如图所示，每个对象说明如下。</p>
+<p>window：客户端 JavaScript 顶层对象。每当 或 标签出现时，window 对象就会被自动创建。</p>
+<p>navigator：包含客户端有关浏览器信息。</p>
+<p>screen：包含客户端屏幕的信息。</p>
+<p>history：包含浏览器窗口访问过的 URL 信息。</p>
+<p>location：包含当前网页文档的 URL 信息。</p>
+<p>document：包含整个 HTML 文档，可被用来访问文档内容及其所有页面元素</p>
+<h5 id="使用系统对话框"><a href="#使用系统对话框" class="headerlink" title="使用系统对话框"></a>使用系统对话框</h5><p>window 对象定义了 3 个人机交互的方法，主要方便对 JavaScript 代码进行调试。</p>
+<p>alert()：确定提示框。由浏览器向用户弹出提示性信息。该方法包含一个可选的提示信息参数。如果没有指定参数，则弹出一个空的对话框。</p>
+<p>confirm()：选择提示框。。由浏览器向用户弹出提示性信息，弹出的对话框中包含两个按钮，分别表示“确定”和“取消”按钮。如果点击“确定”按钮，则该方法将返回 true；单击“取消”按钮，则返回 false。confirm() 方法也包含一个可选的提示信息参数，如果没有指定参数，则弹出一个空的对话框。</p>
+<p>prompt()：输入提示框。可以接收用户输入的信息，并返回输入的信息。prompt() 方法也包含一个可选的提示信息参数，如果没有指定参数，则弹出一个没有提示信息的输入文本对话框。</p>
+<p>示例1<br>下面示例演示了如何综合调用这 3 个方法来设计一个人机交互的对话。</p>
+<pre><code>var user = prompt(&quot;请输入您的用户名&quot;);
+if (!! user) &#123;  //把输入的信息转换为布尔值
+var ok = confirm (&quot;您输入的用户名为：\n&quot; + user + &quot;\n 请确认。&quot;);  //输入信息确认
+    if (ok) &#123;
+        alert (&quot;欢迎您：\n&quot; + user);
+    &#125; else &#123;  //重新输入信息
+        user = prompt (&quot;请重新输入您的用户名：&quot;);
+        alert (&quot;欢迎您：\n&quot; + user);
+    &#125;
+&#125;else &#123;  //提示输入信息
+    user = prompt (&quot;请输入您的用户名：&quot;);
+&#125;
+复制代码
+</code></pre>
+<p>使用 window 对象的 open() 方法可以打开一个新窗口。用法如下：</p>
+<pre><code>window.open (URL, name, features, replace)
+复制代码
+</code></pre>
+<p>参数列表如下：</p>
+<p>URL：可选字符串，声明在新窗口中显示网页文档的 URL。如果省略，或者为空，则新窗口就不会显示任何文档。</p>
+<p>name：可选字符串，声明新窗口的名称。这个名称可以用作标记 &lt; a &gt; 和 &lt; form &gt; 的 target 目标值。如果该参数指定了一个已经存在的窗口，那么 open() 方法就不再创建一个新窗口，而只是返回对指定窗口的引用，在这种情况下，features 参数将被忽略。</p>
+<p>features：可选字符串，声明了新窗口要显示的标准浏览器的特征，具体说明如下表所示。如果省略该参数，新窗口将具有所有标准特征。</p>
+<p>replace：可选的布尔值。规定了装载到窗口的 URL 是在窗口的浏览历史中创建一个新条目，还是替换浏览历史中的当前条目。</p>
+<p>新创建的 window 对象拥有一个 opener 属性，引用打开它的原始对象。opener 只在弹出窗口的最外层 window 对象（top）中定义，而且指向调用 window.open() 方法的窗口或框架。</p>
+<p>示例</p>
+<p>下面示例演示了打开的窗口与原窗口之间的关系。</p>
+<pre><code>win = window.open();  //打开新的空白窗口
+win.document.write (&quot;&lt;h1&gt;这是新打开的窗口&lt;/h1&gt;&quot;);  //在新窗口中输出提示信息
+win.focus ();  //让原窗口获取焦点
+win.opener.document.write (&quot;&lt;h1&gt;这是原来窗口&lt;/h1&gt;&quot;);  //在原窗口中输出提示信息
+console.log(win.opener == window);  //检测window.opener属性值
+</code></pre>
+<p>使用 window 的 close() 方法可以关闭一个窗口。例如，关闭一个新创建的 win 窗口可以使用下面的方法实现。</p>
+<pre><code>win.close;
+复制代码
+</code></pre>
+<p>如果在打开窗口内部关闭自身窗口，则应该使用下面的方法。</p>
+<pre><code>window.close;
+复制代码
+</code></pre>
+<h3 id="9-JavaScript中的钩子是什么？"><a href="#9-JavaScript中的钩子是什么？" class="headerlink" title="9.JavaScript中的钩子是什么？"></a>9.JavaScript中的钩子是什么？</h3><p><strong>hook是一种特殊的消息处理机制，它可以监视系统或者进程中的各种事件信息，截获发往目标窗口的消息进行处理。</strong>它是一个回调函数，且系统消息触发时被系统调用，而不是用户自己触发，钩子函数一般是在某个框架里面的叫法，是这个框架在生命周期的某个阶段触发的回调函数。</p>
+<h3 id="10-instanceof的手写实现"><a href="#10-instanceof的手写实现" class="headerlink" title="10.instanceof的手写实现"></a>10.instanceof的手写实现</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">myInstanceof</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> proto <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getPrototypeOf</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 获得原型左边的原型 </span>
+  <span class="token keyword">let</span> prototype <span class="token operator">=</span> right<span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 获得右边的原型</span>
+  <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>proto<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3、原型链的尽头是null 直到最后没有找到的话 说明左右不是一条‘路’的</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>proto <span class="token operator">===</span> prototype<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1、如果左右两个原型一样的话 说明右边的构造函数的prototype 在左边实例对象的原型链上</span>
+    proto <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getPrototypeOf</span><span class="token punctuation">(</span>proto<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2、如果没有比对成功那么继续往上找左边的原型</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="11-数组转为字符串"><a href="#11-数组转为字符串" class="headerlink" title="11.数组转为字符串"></a>11.数组转为字符串</h3><p>有两种方法，分别是toString() 和join方法</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// '1,2,3,4'</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//'1234'</span>
+</code></pre>
+<h3 id="12-字符串转为数组"><a href="#12-字符串转为数组" class="headerlink" title="12.字符串转为数组"></a>12.字符串转为数组</h3><p>有两种方式，分别是拓展运算符和Array.from</p>
+<pre><code>let str = [...&#39;hello&#39;]
+let str1 = Array.from(&#39;hello&#39;)
+</code></pre>
 
                 
             </div>
@@ -500,7 +597,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cqx010113.github.io/2022/09/16/cha-lou-bu-que-yi/">https://cqx010113.github.io/2022/09/16/cha-lou-bu-que-yi/</a>
+                    <a href="https://cqx010113.github.io/2022/10/08/javascript-ji-chu-mian-shi-ti/">https://cqx010113.github.io/2022/10/08/javascript-ji-chu-mian-shi-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -709,9 +806,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/10/08/javascript-ji-chu-mian-shi-ti/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="JavaScript基础面试题">
+                        
+                        <span class="card-title">JavaScript基础面试题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chen qinxiong
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2022/10/08/javascript-shu-ju-jie-gou-yu-suan-fa/">
                     <div class="card-image">
@@ -729,45 +865,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Chen qinxiong
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/08/29/object.defineproperty-fang-fa-xiang-jie/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Object.defineProperty">
-                        
-                        <span class="card-title">Object.defineProperty</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-08
                             </span>
                         <span class="publish-author">
                             
