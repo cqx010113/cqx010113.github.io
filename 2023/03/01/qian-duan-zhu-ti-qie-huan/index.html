@@ -591,7 +591,7 @@
 <p>优点：1.不用重新加载样式文件，在样式切换时不会有卡顿</p>
 <p>2.在需要切换主题的地方利用var()绑定变量即可，不存在优先级问题</p>
 <p>3.新增或修改主题方便灵活，仅需新增或修改CSS变量即可，在var()绑定样式变量的地方就会自动更换</p>
-<p>缺点：</p>
+<p>缺点：会降低首屏加载的效率（会加载更多的样式）</p>
 
                 
             </div>
@@ -827,18 +827,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/01/qian-duan-zhu-ti-qie-huan/">
+                <a href="/2023/03/01/xiao-cheng-xu-mian-shi-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="前端主题切换方案详解">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="小程序面试题">
                         
-                        <span class="card-title">前端主题切换方案详解</span>
+                        <span class="card-title">小程序面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -848,9 +847,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -859,7 +858,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
