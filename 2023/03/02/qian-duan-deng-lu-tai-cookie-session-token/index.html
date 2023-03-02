@@ -4,11 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="小程序面试题, 前端小橙">
-    <meta name="description" content="小程序面试题1、简单描述下微信小程序的相关文件类型?微信小程序项目结构主要有四个文件类型：
-WXML：是框架设计的一套标签语言，结合基础组件、事件系统，可以构建出页面的结构
-WXSS：是一套样式语言，用于描述WXML的组件样式
-js：逻辑处">
+    <meta name="keywords" content="前端登录态：Cookie，Session，Token, 前端小橙">
+    <meta name="description" content="前端登录态：Cookie，Session，Token简介大家都知道，HTTP是一个无状态的协议，那么Web应用要怎么保持用户的登录态呢？
+如果你对cookie，session和token的优缺点不太明白，或者你想知道在实际中到底怎么实现登录">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,7 +29,7 @@ js：逻辑处">
     </style>
 
 
-    <title>小程序面试题 | 前端小橙</title>
+    <title>前端登录态：Cookie，Session，Token | 前端小橙</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -299,12 +297,12 @@ js：逻辑处">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">小程序面试题</h1>
+                    <h1 class="description center-align post-title">前端登录态：Cookie，Session，Token</h1>
                 </div>
             </div>
         </div>
@@ -432,7 +430,7 @@ js：逻辑处">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-01
+                    2023-03-02
                 </div>
                 
 
@@ -453,55 +451,52 @@ js：逻辑处">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="小程序面试题"><a href="#小程序面试题" class="headerlink" title="小程序面试题"></a>小程序面试题</h3><h4 id="1、简单描述下微信小程序的相关文件类型"><a href="#1、简单描述下微信小程序的相关文件类型" class="headerlink" title="1、简单描述下微信小程序的相关文件类型?"></a>1、简单描述下微信小程序的相关文件类型?</h4><p>微信小程序项目结构主要有四个文件类型：</p>
-<p>WXML：是框架设计的一套标签语言，结合基础组件、事件系统，可以构建出页面的结构</p>
-<p>WXSS：是一套样式语言，用于描述WXML的组件样式</p>
-<p>js：逻辑处理</p>
-<p>json：小程序设置，如页面注册，页面标题及tabBar主要文件</p>
-<p>app.json ：配置文件入口，整个小程序的全局配置。必须要有这个文件，否则项目无法运行</p>
-<p>app.js：可以在这个文件中监听处理小程序的生命周期函数。必须要有这个文件，否则项目无法运行</p>
-<h4 id="2、小程序的双向绑定和vue哪里不一样"><a href="#2、小程序的双向绑定和vue哪里不一样" class="headerlink" title="2、小程序的双向绑定和vue哪里不一样?"></a>2、小程序的双向绑定和vue哪里不一样?</h4><p>小程序直接 this.data 的属性是不可以同步到视图的，必须调用：</p>
-<pre><code>this.setData(&#123;
-    // 这里设置
-&#125;)
-</code></pre>
-<h4 id="3、小程序页面间有哪些传递数据的方法"><a href="#3、小程序页面间有哪些传递数据的方法" class="headerlink" title="3、小程序页面间有哪些传递数据的方法?"></a>3、小程序页面间有哪些传递数据的方法?</h4><p><strong>使用全局变量实现数据传递</strong><br> 在 app.js 文件中定义全局变量 globalData， 将需要存储的信息存放在里面</p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// app.js</span>
-<span class="token function">App</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-     <span class="token comment" spellcheck="true">// 全局变量</span>
-  globalData<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    userInfo<span class="token punctuation">:</span> <span class="token keyword">null</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-复制代码
-</code></pre>
-<p>使用的时候，直接使用 getApp() 拿到存储的信息</p>
-<h4 id="4、小程序的生命周期"><a href="#4、小程序的生命周期" class="headerlink" title="4、小程序的生命周期"></a>4、小程序的生命周期</h4><p>应用的生命周期：</p>
-<p>onLaunch：小程序初始化完成时触发，全局只触发一次</p>
-<p>onShow：小程序启动，或者从后台进入前台显示时触发</p>
-<p>onHide：小程序从前台进入后台时触发</p>
-<p>onError：小程序发生脚本错误时触发</p>
-<p>onPageNotFound：小程序要打开的页面不存在时触发</p>
-<p>页面的生命周期：</p>
-<p>onLoad： 页面加载时触发。一个页面只会调用一次，可以在这个钩子里发送请求获取数据</p>
-<p>onShow：页面显示&#x2F;切入前台时触发</p>
-<p>onReady： 页面<strong>初次渲染完成</strong>时触发。一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互</p>
-<p>onHide： 页面隐藏&#x2F;切入后台时触发。如 navigateTo 或底部 tab 切换到其他页面，小程序切入后台等</p>
-<p>onUnload： 页面卸载时触发。如 redirectTo 或 navigateBack 到其他页面时</p>
-<h4 id="5、小程序的优劣势"><a href="#5、小程序的优劣势" class="headerlink" title="5、小程序的优劣势"></a>5、小程序的优劣势</h4><p>优势：1.即用即走，不用安装；	2.开发成本低</p>
-<p>劣势：1.入口相对传统 App 要深很多	 2.限制较多,页面大小不能超过2M。</p>
-<h4 id="6、如何实现下拉刷新"><a href="#6、如何实现下拉刷新" class="headerlink" title="6、如何实现下拉刷新"></a>6、如何实现下拉刷新</h4><p>首先在全局 config 中的 window 配置 enablePullDownRefresh<br> 在 Page 中定义 onPullDownRefresh 钩子函数,到达下拉刷新条件后，该钩子函数执行，发起请求方法<br> 请求返回后，调用 wx.stopPullDownRefresh 停止下拉刷新</p>
-<h4 id="7、bindtap和catchtap的区别是什么"><a href="#7、bindtap和catchtap的区别是什么" class="headerlink" title="7、bindtap和catchtap的区别是什么?"></a>7、bindtap和catchtap的区别是什么?</h4><p><strong>相同点</strong>：首先他们都是作为点击事件函数，就是点击时触发。在这个作用上他们是一样的，可以不做区分<br><strong>不同点</strong>：他们的不同点主要是bindtap是不会阻止冒泡事件的，catchtap是阻止冒泡的</p>
-<h4 id="8、简述下-wx-navigateTo-wx-redirectTo-wx-switchTab-wx-navigateBack-wx-reLaunch-的区别"><a href="#8、简述下-wx-navigateTo-wx-redirectTo-wx-switchTab-wx-navigateBack-wx-reLaunch-的区别" class="headerlink" title="8、简述下 wx.navigateTo(), wx.redirectTo(), wx.switchTab(), wx.navigateBack(), wx.reLaunch()的区别?"></a>8、简述下 wx.navigateTo(), wx.redirectTo(), wx.switchTab(), wx.navigateBack(), wx.reLaunch()的区别?</h4><p>wx.navigateTo()：保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面</p>
-<p> wx.redirectTo()：关闭当前页面，跳转到新的页面（类似重定向）。但是不允许跳转到 tabbar 页面<br> wx.switchTab()：跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面<br> wx.navigateBack():关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages() 获取当前的页面栈，决定需要返回几层<br> wx.reLaunch()：关闭所有页面，打开到应用内的某个页面</p>
-<h4 id="9、登录流程？"><a href="#9、登录流程？" class="headerlink" title="9、登录流程？"></a>9、<strong>登录流程？</strong></h4><p>登录流程是调wx.login获取code传给后台服务器获取微信用户唯一标识openid及本次登录的会话密钥（session_key）等）。拿到开发者服务器传回来的会话密钥（session_key）之后，前端要保存wx.setStorageSync(‘sessionKey’, ‘value’)</p>
-<p>持久登录状态：session信息存放在cookie中以请求头的方式带回给服务端，放到request.js里的wx.request的header里</p>
-<h4 id="10、小程序的更新机制"><a href="#10、小程序的更新机制" class="headerlink" title="10、小程序的更新机制"></a>10、小程序的更新机制</h4><p>开发者在管理后台发布新版本的小程序之后，微信客户端会有若干个时机去检查本地缓存的小程序有没有新版本，并进行小程序的代码包更新。但如果用户本地有小程序的历史版本，此时打开的可能还是旧版本。</p>
-<p>更新分为同步更新和异步更新</p>
-<h5 id="定期检查发现版本更新"><a href="#定期检查发现版本更新" class="headerlink" title="定期检查发现版本更新"></a>定期检查发现版本更新</h5><p>微信运行时，会定期检查最近使用的小程序是否有更新。如果有更新，下次小程序启动时会同步进行更新，更新到最新版本后再打开小程序，尽可能保证用户能够尽快使用小程序的最新版本。</p>
-<h5 id="用户长时间未使用小程序"><a href="#用户长时间未使用小程序" class="headerlink" title="用户长时间未使用小程序"></a>用户长时间未使用小程序</h5><p>用户长时间未使用小程序时，为保障小程序版本的实时性，会强制同步检查版本更新，更新到最新版本后再打开小程序。</p>
-<p>若用户处于弱网环境、下载最新版本失败等情况下，仍会启动本地的较低版本。</p>
-<h5 id="启动时异步更新"><a href="#启动时异步更新" class="headerlink" title="启动时异步更新"></a>启动时异步更新</h5><p>即使启动前未发现更新，小程序每次<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/operating-mechanism.html">冷启动</a>时，都会异步检查是否有更新版本。如果发现有新版本，将会异步下载新版本的代码包。但当次启动仍会使用客户端本地的旧版本代码，即新版本的小程序需要等<strong>下一次冷启动</strong>才会使用。</p>
+                <h3 id="前端登录态：Cookie，Session，Token"><a href="#前端登录态：Cookie，Session，Token" class="headerlink" title="前端登录态：Cookie，Session，Token"></a>前端登录态：Cookie，Session，Token</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>大家都知道，<code>HTTP</code>是一个无状态的协议，那么Web应用要怎么保持用户的登录态呢？</p>
+<p>如果你对<code>cookie</code>，<code>session</code>和<code>token</code>的优缺点不太明白，或者你想知道在实际中到底怎么实现登录态，那么本文将非常适合你,本文将以发展历程为顺序为大家介绍<code>cookies</code>，<code>session</code>以及<code>token</code>的优势和缺点。</p>
+<p>本文知识点：</p>
+<ol>
+<li><code>cookie</code>，<code>session</code>，<code>token(json web token,jwt)</code>的区别</li>
+</ol>
+<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><p>我们站在服务器这一端，一个用户请求过来怎么判断他有没有登录呢？</p>
+<p>在验证用户名和密码之后，我们可以发给客户端一个凭证(isLogin &#x3D; true)，如果请求中有这个凭证，那么他就是登陆之后的用户。 <code>cookie</code>和<code>session</code>的区别在于，凭证的存储位置。换言之，如果凭证存储在客户端，那就是<code>cookie</code>。如果凭证存储在服务端，那就是<code>session</code>。</p>
+<h4 id="客户端存储（cookie）"><a href="#客户端存储（cookie）" class="headerlink" title="客户端存储（cookie）"></a>客户端存储（cookie）</h4><p><code>cookie</code>其实是<code>HTTP</code>头部的一个字段，本质上可以存储任何信息，早年用于实现登录态，所以有了一层别的含义——客户端存储。把凭证存储到<code>cookie</code>中，每次浏览器的请求会自动带上<code>cookie</code>里的凭证，方便服务端校验，就像下面这样</p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/16/16abe802c23c006c~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp" alt="img"></p>
+<p>图1 海绵宝宝请求调用<code>/login</code>接口，派大星验证通过后给海绵宝宝颁发的登录凭证<code>isLogin=true</code></p>
+<p>但是这样面临的问题是：</p>
+<p>用户本人可以通过修改<code>document.cookie=&quot;isLogin = true&quot;</code>伪造登陆凭证:</p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/16/16abe8575407917d~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp" alt="img"></p>
+<p>图2 海绵宝宝直接修改cookie跳过登录接口验证获取数据</p>
+<p>Cookie是怎么生成的：</p>
+<p>1.在服务端生成，在HTTP的响应头上面添加Set-Cookie</p>
+<p>2.在客户端生成，通过document.cookie设置</p>
+<h4 id="服务端存储（session）"><a href="#服务端存储（session）" class="headerlink" title="服务端存储（session）"></a>服务端存储（session）</h4><p><code>session</code>本意是指客户端与服务器的会话状态，由于凭证存储到了服务端，后来也把这些存在服务端的信息称为<code>session</code>。</p>
+<p>现在服务器决定自己维护登录状态，仅发给客户端一个<code>key</code>，然后在自己维护一个<code>key-value</code>表，如果请求中有<code>key</code>，并且在表中可以找到对应的<code>value</code>，则视为合法：</p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/16/16abe87079acc73a~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp" alt="img"></p>
+<p>图3 海绵宝宝请求调用<code>/login</code>接口，派大星验证通过后给海绵宝宝颁发<code>sessionID</code></p>
+<p>这样即使海绵宝宝自行修改了<code>sessionID</code>，在派大星那里没有对应的记录，也无法获取数据。</p>
+<p><code>session</code>是一个好的解决方案，但是他的问题是：会给服务器带来负担</p>
+<h4 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h4><p>还有其他的方法可以实现登陆态吗？</p>
+<p><code>cookie</code>方法不需要服务器存储，但是凭证容易被伪造，那有什么办法判断凭证是否伪造呢？</p>
+<p>和<code>HTTPS</code>一样，我们可以使用签名的方式帮助服务器校验凭证。</p>
+<p><code>JSON Web Token（简称JWT）</code>是以<code>JSON</code>格式存储信息的<code>Token</code>，其结构图如下：</p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/16/16abe8d3fb381061~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp" alt="img"></p>
+<p>图4 JSON Web Token结构图</p>
+<p><code>JWT</code>由3部分构成：头部，负载和签名。</p>
+<p>根据<a href="https://link.juejin.cn/?target=https://jwt.io/introduction/">官网介绍</a>：</p>
+<ol>
+<li>头部存储<code>Token</code>的类型和签名算法（上图中，类型是<code>jwt</code>，加密算法是<code>HS256</code>）</li>
+<li>负载是<code>Token</code>要存储的信息（上图中，存储了用户姓名和昵称信息）</li>
+<li>签名是由指定的算法，将转义后的头部和负载，加上密钥一同加密得到的。</li>
+</ol>
+<p>最后将这三部分用<code>.</code>号连接，就可以得到了一个<code>Token</code>了。</p>
+<p>使用<code>JWT</code>维护登陆态，服务器不再需要维护状态表，他仅给客户端发送一个加密的数据<code>token</code>，每次请求都带上这个加密的数据，再解密验证是否合法即可。由于是加密的数据，即使用户可以修改，命中几率也很小。</p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/16/16abe93a19cb1a93~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp" alt="img"></p>
+<p>客户端如何存储<code>token</code>呢？</p>
+<ol>
+<li>存在<code>cookie</code>中，虽然设置<code>HttpOnly</code>可以有效防止<code>XSS</code>攻击中<code>token</code>被窃取，但是也就意味着客户端无法获取<code>token</code>来设置<code>CORS</code>头部。</li>
+<li>存在<code>sessionStorage</code>或者<code>localStorage</code>中，可以设置头部解决跨域资源共享问题，同时也可以防止<code>CSRF</code>，但是就需要考虑<code>XSS</code>的问题防止凭证泄露。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>实现登录态是前端非常基础且重要的技能之一。之前在学习这一块的时候，分不清<code>Cookie</code>，<code>Session</code>和<code>Token</code>的区别。<code>session</code>是比<code>cookie</code>更好的一种解决方案。<code>token</code>成为主流，是因为他不需要额外的存储管理。</p>
 
                 
             </div>
@@ -528,7 +523,7 @@ js：逻辑处">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cqx010113.github.io/2023/03/01/xiao-cheng-xu-mian-shi-ti/">https://cqx010113.github.io/2023/03/01/xiao-cheng-xu-mian-shi-ti/</a>
+                    <a href="https://cqx010113.github.io/2023/03/02/qian-duan-deng-lu-tai-cookie-session-token/">https://cqx010113.github.io/2023/03/02/qian-duan-deng-lu-tai-cookie-session-token/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -741,13 +736,13 @@ js：逻辑处">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/02/qian-duan-deng-lu-tai-cookie-session-token/">
+                <a href="/2023/03/02/cha-lou-bu-que-er/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="前端登录态：Cookie，Session，Token">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="查漏补缺（二）">
                         
-                        <span class="card-title">前端登录态：Cookie，Session，Token</span>
+                        <span class="card-title">查漏补缺（二）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -778,13 +773,13 @@ js：逻辑处">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/01/qian-duan-zhu-ti-qie-huan/">
+                <a href="/2023/03/01/xiao-cheng-xu-mian-shi-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="前端主题切换方案详解">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="小程序面试题">
                         
-                        <span class="card-title">前端主题切换方案详解</span>
+                        <span class="card-title">小程序面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
