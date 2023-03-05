@@ -571,6 +571,46 @@ console.log(win.opener == window);  //检测window.opener属性值
 <pre><code>let str = [...&#39;hello&#39;]
 let str1 = Array.from(&#39;hello&#39;)
 </code></pre>
+<h3 id="13-介绍js有哪些内置对象"><a href="#13-介绍js有哪些内置对象" class="headerlink" title="13.介绍js有哪些内置对象"></a>13.介绍js有哪些内置对象</h3><p><code>Object</code> 是 <code>JavaScript </code>中所有对象的父对象</p>
+<p>数据封装类对象： <code>Object 、 Array 、 Boolean 、 Number 和 String</code></p>
+<p>其他对象： <code>Function 、 Arguments 、 Math 、 Date 、 RegExp 、 Error</code></p>
+<h3 id="14-JS有哪些方法定义对象"><a href="#14-JS有哪些方法定义对象" class="headerlink" title="14.JS有哪些方法定义对象"></a>14.JS有哪些方法定义对象</h3><ul>
+<li>对象字面量： <code>var obj = &#123;&#125;</code>;</li>
+<li>构造函数： <code>var obj = new Object()</code>;</li>
+<li>Object.create(): <code>var obj = Object.create(Object.prototype);</code></li>
+</ul>
+<h3 id="15-描述this"><a href="#15-描述this" class="headerlink" title="15.描述this"></a>15.描述this</h3><p>this是函数的执行上下文，可以通过call，apply和bind去改变this的指向，谁调用了这个函数，this就指向谁，而箭头函数没有this，它的this指向了箭头函数的外层，在非严格模式下，this指向window，而在严格模式下，this指向undefined</p>
+<h3 id="16-ajax-axios-fetch的区别"><a href="#16-ajax-axios-fetch的区别" class="headerlink" title="16.ajax,axios,fetch的区别"></a>16.ajax,axios,fetch的区别</h3><p><strong>ajax（async javascript and xml）</strong></p>
+<ul>
+<li>是一种快速创建动态网站的网页开发技术，可以再不更新整个页面的情况下，实现页面的局部更新</li>
+<li>本身是针对<code> MVC</code> 的编程,不符合现在前端<code>MVVM</code>的浪潮</li>
+<li>核心是XHR对象</li>
+</ul>
+<p><strong>axios</strong></p>
+<ul>
+<li>Axios 是一个基于 promise 封装的网络请求库，它是基于 XHR 进行二次封装</li>
+<li>从浏览器中创建XHR对象，从nodejs发送http请求</li>
+<li>拦截请求和响应</li>
+</ul>
+<p><strong>Feach</strong></p>
+<ul>
+<li>是基于promise的API，是XHR的替代品</li>
+<li>关注数据分离</li>
+</ul>
+<h3 id="17-哪些操作会造成内存泄漏"><a href="#17-哪些操作会造成内存泄漏" class="headerlink" title="17.哪些操作会造成内存泄漏"></a>17.哪些操作会造成内存泄漏</h3><ul>
+<li>意外的全局变量</li>
+<li>没有清除的定时器</li>
+<li>没有进行事件解绑</li>
+<li>闭包</li>
+</ul>
+<h3 id="18-Node的应用场景"><a href="#18-Node的应用场景" class="headerlink" title="18.Node的应用场景"></a>18.Node的应用场景</h3><ul>
+<li>特点</li>
+</ul>
+<p>​	基于chromev8引擎的javascript运行环境</p>
+<ul>
+<li>优点：文件读写效率高，高并发</li>
+<li>缺点：可靠性低，一旦代码某个环节崩溃，整个系统都崩溃</li>
+</ul>
 
                 
             </div>

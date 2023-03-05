@@ -461,9 +461,9 @@ js：逻辑处">
 <p>app.json ：配置文件入口，整个小程序的全局配置。必须要有这个文件，否则项目无法运行</p>
 <p>app.js：可以在这个文件中监听处理小程序的生命周期函数。必须要有这个文件，否则项目无法运行</p>
 <h4 id="2、小程序的双向绑定和vue哪里不一样"><a href="#2、小程序的双向绑定和vue哪里不一样" class="headerlink" title="2、小程序的双向绑定和vue哪里不一样?"></a>2、小程序的双向绑定和vue哪里不一样?</h4><p>小程序直接 this.data 的属性是不可以同步到视图的，必须调用：</p>
-<pre><code>this.setData(&#123;
-    // 这里设置
-&#125;)
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 这里设置</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="3、小程序页面间有哪些传递数据的方法"><a href="#3、小程序页面间有哪些传递数据的方法" class="headerlink" title="3、小程序页面间有哪些传递数据的方法?"></a>3、小程序页面间有哪些传递数据的方法?</h4><p><strong>使用全局变量实现数据传递</strong><br> 在 app.js 文件中定义全局变量 globalData， 将需要存储的信息存放在里面</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// app.js</span>
